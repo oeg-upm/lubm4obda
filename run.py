@@ -23,13 +23,13 @@ custom_style_3 = style_from_dict({
 })
 
 run_path = "/repo/LinGBM/tools/datasetgen/"
-output_path = "/output/output/"
+output_path = "/output/"
 
 q1 = [
     {
         'type': 'input',
         'name': 'q',
-        'message': 'Please, specify the scale factor',
+        'message': 'Please, specify the scale factor:',
     }
 ]
 
@@ -39,16 +39,9 @@ q2 = [
     {
         'type': 'list',
         'name': 'q',
-        'message': 'Choose the output format:',
+        'message': 'Select the output format:',
         'choices': [
-            {
-                'name': 'NTRIPLES',
-                'value': 'NTRIPLES'
-            },
-            {
-                'name': 'TURTLE',
-                'value': 'TURTLE'
-            },
+
             {
                 'name': 'SQL',
                 'value': 'SQL'
@@ -56,6 +49,14 @@ q2 = [
             {
                 'name': 'PostgreSQL',
                 'value': 'PostgreSQL'
+            },
+            {
+                'name': 'NTRIPLES',
+                'value': 'NTRIPLES'
+            },
+            {
+                'name': 'TURTLE',
+                'value': 'TURTLE'
             }
 
         ]
@@ -63,26 +64,14 @@ q2 = [
     }
 ]
 
-
 r2 = prompt(q2)["q"]
+print('\n')
 
-os.mkdir(output_path)
+os.system(f'{run_path}./generate.sh -o {output_path} --consolidate Maximal --format {r2} -u {r1}')
 
-os.system(run_path+"./generate.sh -t 4 -o "+output_path+" --consolidate Maximal --format "+str(r2)+" -u "+str(r1))
-
-
-print(colored("The generated data is in the current folder", 'blue'))
-
-
-
-
-
-
-def signal_handler(sig, frame):
-    print('\nBye! ')
-    sys.exit(0)
-
-signal.signal(signal.SIGINT, signal_handler)
-
-print('Press Ctrl+C to exit')
-signal.pause()
+print('\n')
+print(colored("##########################################################", 'blue', attrs=['bold']))
+print(colored("Generation finished! The data is in the current directory.", 'blue', attrs=['bold']))
+print(colored("##########################################################", 'blue', attrs=['bold']))
+print("                                                 "+ colored("LUBM", 'red', attrs=['bold']) + colored("4", 'blue', attrs=['bold']) + colored("OBDA", 'red', attrs=['bold']))
+print('\n')
