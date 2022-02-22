@@ -67,7 +67,7 @@ q2 = [
 r2 = prompt(q2)["q"]
 print('\n')
 
-os.system(f'{run_path}./generate.sh -o {output_path} --consolidate Maximal --format {r2} -u {r1}')
+os.system(f'{run_path}./generate.sh -o {output_path} --consolidate Full --format {r2} -u {r1}')
 
 print('\n')
 print(colored("##########################################################", 'blue', attrs=['bold']))
