@@ -3,7 +3,7 @@ FROM ubuntu:20.04
 ENV DEBIAN_FRONTEND=noninteractive
 
 RUN apt update
-RUN apt install -y wget git unzip zip nano curl python3 python3-pip maven default-jdk
+RUN apt install -y wget git unzip zip nano curl python3 python3-pip maven default-jdk figlet
 
 RUN mkdir /repo
 WORKDIR /repo

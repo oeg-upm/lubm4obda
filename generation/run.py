@@ -11,6 +11,8 @@ from termcolor import colored
 from PyInquirer import style_from_dict, Token, prompt
 from PyInquirer import Validator, ValidationError
 
+os.system("figlet -f standard -c LUBM4OBDA")
+
 custom_style_3 = style_from_dict({
     Token.Separator: '#6C6C6C',
     Token.QuestionMark: '#FF9D00 bold',
@@ -69,9 +71,8 @@ print('\n')
 
 os.system(f'{run_path}./generate.sh -o {output_path} --consolidate Full --format {r2} -u {r1}')
 
-print('\n')
-print(colored("##########################################################", 'blue', attrs=['bold']))
-print(colored("Generation finished! The data is in the current directory.", 'blue', attrs=['bold']))
-print(colored("##########################################################", 'blue', attrs=['bold']))
-print("                                                 "+ colored("LUBM", 'red', attrs=['bold']) + colored("4", 'blue', attrs=['bold']) + colored("OBDA", 'red', attrs=['bold']))
-print('\n')
+print('')
+print(colored("##########################################################", attrs=['bold']))
+print(colored("Generation finished! The data is in the current directory.", attrs=['bold']))
+print(colored("##########################################################", attrs=['bold']))
+print('')
