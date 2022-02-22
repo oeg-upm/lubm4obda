@@ -1,7 +1,7 @@
-DROP DATABASE IF EXISTS LinBenchmark;
-CREATE DATABASE LinBenchmark;
+DROP DATABASE IF EXISTS `lubm4obda`;
+CREATE DATABASE `lubm4obda`;
 
-USE LinBenchmark;
+USE `lubm4obda`;
 
 SET FOREIGN_KEY_CHECKS = 0;
 

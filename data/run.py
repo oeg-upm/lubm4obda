@@ -67,9 +67,19 @@ q2 = [
 ]
 
 r2 = prompt(q2)["q"]
+
 print('\n')
 
-os.system(f'{run_path}./generate.sh -o {output_path} --consolidate Full --format {r2} -u {r1}')
+
+os.system(f'{run_path}./generate.sh -o /temp/ --consolidate Full --format {r2} -u {r1}')
+
+
+if r2 == 'SQL':
+    os.system(f"cat /code/schema_university.sql > {output_path}universities.sql")
+elif r2 == 'PostgreSQL':
+    os.system(f"cat /code/schema_university_psql.sql > {output_path}universities.sql")
+
+os.system(f"cat /temp/Universities-1.sql >> {output_path}universities.sql")
 
 print('')
 print(colored("##########################################################", attrs=['bold']))

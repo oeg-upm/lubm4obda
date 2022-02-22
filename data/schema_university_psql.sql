@@ -1,7 +1,7 @@
-DROP DATABASE IF EXISTS linbenchmark;
-CREATE DATABASE linbenchmark;
+DROP DATABASE IF EXISTS lubm4obda;
+CREATE DATABASE lubm4obda;
 
-\c linbenchmark;
+\c lubm4obda;
 
 
 DROP TABLE IF EXISTS university;
