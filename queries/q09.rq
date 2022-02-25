@@ -1,0 +1,11 @@
+PREFIX ub: <http://www.lehigh.edu/~zhp2/2004/0401/univ-bench.owl#>
+
+SELECT ?x ?y ?z
+WHERE {
+  ?x a ub:Student .
+  ?x ub:advisor ?y .
+  ?x ub:takesCourse ?z .
+  ?y a ub:Faculty .
+  ?y ub:teacherOf ?z .
+  ?z a ub:Course .
+}
