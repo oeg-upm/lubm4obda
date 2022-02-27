@@ -4,21 +4,39 @@
 <#University>
     rr:logicalTable [ rr:tableName "university" ];
     rr:subjectMap [
-        rr:template "http://data.example.com/employee/{EMPNO}";
-        rr:class ub:University;
+        rr:template "http://www.university{nr}.edu";
+        rr:class ub:university;
     ];
     rr:predicateObjectMap [
-        rr:predicate ex:name;
-        rr:objectMap [ rr:column "ENAME" ];
+        rr:predicate ub:name;
+        rr:objectMap [ rr:column "name" ];
     ].
 
 <#Department>
     rr:logicalTable [ rr:tableName "department" ];
     rr:subjectMap [
-        rr:template "http://data.example.com/employee/{EMPNO}";
-        rr:class ub:Department;
+        rr:template "http://www.department{nr}.university{subOrganizationOf}.edu";
+        rr:class ub:department;
     ];
     rr:predicateObjectMap [
-        rr:predicate ex:name;
-        rr:objectMap [ rr:column "ENAME" ];
+        rr:predicate ub:name;
+        rr:objectMap [ rr:column "name" ];
+    ];
+    rr:predicateObjectMap [
+        rr:predicate ub:subOrganizationOf;
+        rr:objectMap [ rr:template "http://www.university{subOrganizationOf}.edu" ];
+    ].
+
+<#ResearchGroup>
+    rr:logicalTable [ rr:sqlQuery """
+        SELECT researchgroup.nr AS nr, researchgroup.suborganizationof AS departmentnr, department.suborganizationof AS universitynr, name
+        FROM researchgroup INNER JOIN department ON researchgroup.suborganizationof=department.nr
+    """ ];
+    rr:subjectMap [
+        rr:template "http://www.department{departmentnr}.university{universitynr}.edu/researchGroup{nr}.edu";
+        rr:class ub:researchGroup;
+    ];
+    rr:predicateObjectMap [
+        rr:predicate ub:subOrganizationOf;
+        rr:objectMap [ rr:template "http://www.department{departmentnr}.university{universitynr}.edu" ];
     ].
