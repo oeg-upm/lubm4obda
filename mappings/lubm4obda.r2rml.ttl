@@ -1,0 +1,24 @@
+@prefix rr: <http://www.w3.org/ns/r2rml#>.
+@prefix ub: <http://www.lehigh.edu/~zhp2/2004/0401/univ-bench.owl#>.
+
+<#University>
+    rr:logicalTable [ rr:tableName "university" ];
+    rr:subjectMap [
+        rr:template "http://data.example.com/employee/{EMPNO}";
+        rr:class ub:University;
+    ];
+    rr:predicateObjectMap [
+        rr:predicate ex:name;
+        rr:objectMap [ rr:column "ENAME" ];
+    ].
+
+<#Department>
+    rr:logicalTable [ rr:tableName "department" ];
+    rr:subjectMap [
+        rr:template "http://data.example.com/employee/{EMPNO}";
+        rr:class ub:Department;
+    ];
+    rr:predicateObjectMap [
+        rr:predicate ex:name;
+        rr:objectMap [ rr:column "ENAME" ];
+    ].
