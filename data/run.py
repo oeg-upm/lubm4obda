@@ -51,14 +51,6 @@ q2 = [
             {
                 'name': 'PostgreSQL',
                 'value': 'PostgreSQL'
-            },
-            {
-                'name': 'NTRIPLES',
-                'value': 'NTRIPLES'
-            },
-            {
-                'name': 'TURTLE',
-                'value': 'TURTLE'
             }
 
         ]
