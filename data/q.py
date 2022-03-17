@@ -6,7 +6,7 @@ g.parse('Universities-1.nt')
 q = """
     SELECT DISTINCT ?p
     WHERE {
-        ?s a <http://www.lehigh.edu/~zhp2/2004/0401/univ-bench.owl#graduateStudent> .
+        ?s a <http://www.lehigh.edu/~zhp2/2004/0401/univ-bench.owl#university> .
         ?s ?p ?o .
     }
 """
