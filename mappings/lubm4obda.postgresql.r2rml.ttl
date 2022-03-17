@@ -33,11 +33,11 @@
 
 <#Publication>
     rr:logicalTable [ rr:sqlQuery """
-        SELECT publication.nr AS publicationnr, faculty.name AS facultyname, department.suborganizationof AS universitynr, publication.name AS publicationname, worksfor
-        FROM publication INNER JOIN faculty ON publication.mainauthor=faculty.nr INNER JOIN department ON faculty.worksfor=department.nr INNER JOIN professor ON faculty.nr=professor.nr
+        SELECT publication.name AS publicationname, faculty.name AS facultyname, department.suborganizationof AS universitynr, worksfor
+        FROM publication INNER JOIN faculty ON publication.mainauthor=faculty.nr INNER JOIN department ON faculty.worksfor=department.nr
     """ ];
     rr:subjectMap [
-        rr:template "http://www.department{worksfor}.university{universitynr}.edu/{facultyname}/publication{publicationnr}";
+        rr:template "http://www.department{worksfor}.university{universitynr}.edu/{facultyname}/{publicationname}";
         rr:class ub:publication;
     ];
     rr:predicateObjectMap [
@@ -319,6 +319,7 @@
     """ ];
     rr:subjectMap [
         rr:template "http://www.department{departmentnr}.university{universitynr}.edu/graduateStudent{graduatestudentnr}";
+        rr:class ub:teachingAssistant;
     ];
     rr:predicateObjectMap [
         rr:predicate ub:teachingAssistantOf;
@@ -327,11 +328,11 @@
 
 <#CoAuthorOfPublication>
     rr:logicalTable [ rr:sqlQuery """
-        SELECT publicationid AS publicationnr, graduatestudentid AS graduatestudentnr, faculty.name AS facultyname, department.nr AS departmentnr, department.suborganizationof AS universitynr
+        SELECT publication.name AS publicationname, graduatestudentid AS graduatestudentnr, faculty.name AS facultyname, department.nr AS departmentnr, department.suborganizationof AS universitynr
         FROM coauthorofpublication INNER JOIN publication ON coauthorofpublication.publicationid=publication.nr INNER JOIN faculty ON publication.mainauthor=faculty.nr INNER JOIN department ON faculty.worksfor=department.nr
     """ ];
     rr:subjectMap [
-        rr:template "http://www.department{departmentnr}.university{universitynr}.edu/{facultyname}/publication{publicationnr}";
+        rr:template "http://www.department{departmentnr}.university{universitynr}.edu/{facultyname}/{publicationname}";
     ];
     rr:predicateObjectMap [
         rr:predicate ub:publicationAuthor;

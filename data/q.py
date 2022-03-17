@@ -28,7 +28,7 @@ for row in g.query(q):
 (rdflib.term.URIRef('http://www.lehigh.edu/~zhp2/2004/0401/univ-bench.owl#undergraduateCourse
 (rdflib.term.URIRef('http://www.lehigh.edu/~zhp2/2004/0401/univ-bench.owl#graduateCourse
 (rdflib.term.URIRef('http://www.lehigh.edu/~zhp2/2004/0401/univ-bench.owl#teachingAssistant'),)
-(rdflib.term.URIRef('http://www.lehigh.edu/~zhp2/2004/0401/univ-bench.owl#researchAssistant'),)********
+(rdflib.term.URIRef('http://www.lehigh.edu/~zhp2/2004/0401/univ-bench.owl#researchAssistant'),)***
 
 
 """
