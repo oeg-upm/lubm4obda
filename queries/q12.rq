@@ -5,5 +5,5 @@ WHERE {
   ?x a ub:Chair .
   ?x ub:worksFor ?y .
   ?y a ub:Department .
-  ?y ub:subOrganizationOf <http://www.University0.edu> .
+  ?y ub:subOrganizationOf <http://www.university0.edu> .
 }

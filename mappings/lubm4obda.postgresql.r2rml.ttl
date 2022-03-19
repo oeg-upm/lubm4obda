@@ -33,7 +33,7 @@
     ].
 
 
-<#Publication>
+<#Publication>professor.professortype AS professortype,
     rr:logicalTable [ rr:sqlQuery """
         SELECT publication.name AS publicationname, faculty.name AS facultyname, department.suborganizationof AS universitynr, department.nr AS departmentnr
         FROM publication INNER JOIN faculty ON publication.mainauthor=faculty.nr INNER JOIN department ON faculty.worksfor=department.nr

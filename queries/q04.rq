@@ -3,7 +3,7 @@ PREFIX ub: <http://www.lehigh.edu/~zhp2/2004/0401/univ-bench.owl#>
 SELECT ?x ?y1 ?y2 ?y3
 WHERE {
   ?x a ub:Professor .
-  ?x ub:worksFor <http://www.Department0.University0.edu> .
+  ?x ub:worksFor <http://www.department0.university0.edu> .
   ?x ub:name ?y1 .
   ?x ub:emailAddress ?y2 .
   ?x ub:telephone ?y3 .
