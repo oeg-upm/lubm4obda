@@ -27,7 +27,7 @@
         rr:objectMap [ rr:column "name" ];
     ];
     rr:predicateObjectMap [
-        rr:predicate ub:subOrganizationOf;
+        rr:predicate ub:suborganizationof;
         rr:objectMap [ rr:template "http://www.university{suborganizationof}.edu" ];
     ].
 
@@ -59,17 +59,17 @@
         rr:class ub:researchGroup;
     ];
     rr:predicateObjectMap [
-        rr:predicate ub:subOrganizationOf;
+        rr:predicate ub:suborganizationof;
         rr:objectMap [ rr:template "http://www.department{departmentnr}.university{universitynr}.edu" ];
     ].
 
 <#UndergraduateCourse>
     rr:logicalTable [ rr:sqlQuery """
-        SELECT undergraduatecourse.nr AS undergraduatecoursenr, suborganizationof AS universitynr, undergraduatecourse.name AS undergraduatecoursename, worksfor
+        SELECT suborganizationof AS universitynr, undergraduatecourse.name AS undergraduatecoursename, worksfor
         FROM undergraduatecourse INNER JOIN faculty ON undergraduatecourse.teacher=faculty.nr INNER JOIN department ON worksfor=department.nr
     """ ];
     rr:subjectMap [
-        rr:template "http://www.department{worksfor}.university{universitynr}.edu/undergraduateCourse{undergraduatecoursenr}";
+        rr:template "http://www.department{worksfor}.university{universitynr}.edu/{undergraduatecoursename}";
         rr:class ub:undergraduateCourse;
     ];
     rr:predicateObjectMap [
@@ -79,11 +79,11 @@
 
 <#GraduateCourse>
     rr:logicalTable [ rr:sqlQuery """
-        SELECT graduatecourse.nr AS graduatecoursenr, suborganizationof AS universitynr, graduatecourse.name AS graduatecoursename, worksfor
+        SELECT suborganizationof AS universitynr, graduatecourse.name AS graduatecoursename, worksfor
         FROM graduatecourse INNER JOIN faculty ON graduatecourse.teacher=faculty.nr INNER JOIN department ON worksfor=department.nr
     """ ];
     rr:subjectMap [
-        rr:template "http://www.department{worksfor}.university{universitynr}.edu/graduateCourse{graduatecoursenr}";
+        rr:template "http://www.department{worksfor}.university{universitynr}.edu/{graduatecoursename}";
         rr:class ub:graduateCourse;
     ];
     rr:predicateObjectMap [
@@ -142,7 +142,7 @@
 
 <#ProfessorTeacherGraduateCourse>
     rr:logicalTable [ rr:sqlQuery """
-        SELECT faculty.name AS facultyname, department.nr AS departmentnr, department.suborganizationof AS universitynr, graduatecourse.nr AS graduatecoursenr
+        SELECT faculty.name AS facultyname, department.nr AS departmentnr, department.suborganizationof AS universitynr, graduatecourse.name AS graduatecoursename
         FROM professor INNER JOIN faculty ON professor.nr=faculty.nr INNER JOIN department ON worksfor=department.nr INNER JOIN graduatecourse ON graduatecourse.teacher=faculty.nr
     """ ];
     rr:subjectMap [
@@ -150,12 +150,12 @@
     ];
     rr:predicateObjectMap [
         rr:predicate ub:teacherOf;
-        rr:objectMap [ rr:template "http://www.department{departmentnr}.university{universitynr}.edu/graduateCourse{graduatecoursenr}" ];
+        rr:objectMap [ rr:template "http://www.department{departmentnr}.university{universitynr}.edu/{graduatecoursename}" ];
     ].
 
 <#ProfessorTeacherUndergraduateCourse>
     rr:logicalTable [ rr:sqlQuery """
-        SELECT faculty.name AS facultyname, department.nr AS departmentnr, department.suborganizationof AS universitynr, undergraduatecourse.nr AS undergraduatecoursenr
+        SELECT faculty.name AS facultyname, department.nr AS departmentnr, department.suborganizationof AS universitynr, undergraduatecourse.name AS undergraduatecoursename
         FROM professor INNER JOIN faculty ON professor.nr=faculty.nr INNER JOIN department ON worksfor=department.nr INNER JOIN undergraduatecourse ON undergraduatecourse.teacher=faculty.nr
     """ ];
     rr:subjectMap [
@@ -163,16 +163,16 @@
     ];
     rr:predicateObjectMap [
         rr:predicate ub:teacherOf;
-        rr:objectMap [ rr:template "http://www.department{departmentnr}.university{universitynr}.edu/undergraduateCourse{undergraduatecoursenr}" ];
+        rr:objectMap [ rr:template "http://www.department{departmentnr}.university{universitynr}.edu/{undergraduatecoursename}" ];
     ].
 
 <#Lecturer>
     rr:logicalTable [ rr:sqlQuery """
-        SELECT lecturer.nr AS lecturernr, department.nr AS departmentnr, faculty.name AS facultyname, department.suborganizationof AS universitynr, telephone, emailaddress, undergraduatedegreefrom, masterdegreefrom, doctoraldegreefrom, worksfor
+        SELECT department.nr AS departmentnr, faculty.name AS facultyname, department.suborganizationof AS universitynr, telephone, emailaddress, undergraduatedegreefrom, masterdegreefrom, doctoraldegreefrom, worksfor
         FROM lecturer INNER JOIN faculty ON lecturer.nr=faculty.nr INNER JOIN department ON worksfor=department.nr
     """ ];
     rr:subjectMap [
-        rr:template "http://www.department{departmentnr}.university{universitynr}.edu/lecturer{lecturernr}";
+        rr:template "http://www.department{departmentnr}.university{universitynr}.edu/{facultyname}";
         rr:class ub:lecturer;
     ];
     rr:predicateObjectMap [
@@ -206,37 +206,37 @@
 
 <#LecturerTeacherGraduateCourse>
     rr:logicalTable [ rr:sqlQuery """
-        SELECT lecturer.nr AS lecturernr, department.nr AS departmentnr, department.suborganizationof AS universitynr, graduatecourse.nr AS graduatecoursenr
+        SELECT faculty.name AS facultyname, department.nr AS departmentnr, department.suborganizationof AS universitynr, graduatecourse.name AS graduatecoursename
         FROM lecturer INNER JOIN faculty ON lecturer.nr=faculty.nr INNER JOIN department ON worksfor=department.nr INNER JOIN graduatecourse ON graduatecourse.teacher=faculty.nr
     """ ];
     rr:subjectMap [
-        rr:template "http://www.department{departmentnr}.university{universitynr}.edu/lecturer{lecturernr}";
+        rr:template "http://www.department{departmentnr}.university{universitynr}.edu/{facultyname}";
     ];
     rr:predicateObjectMap [
         rr:predicate ub:teacherOf;
-        rr:objectMap [ rr:template "http://www.department{departmentnr}.university{universitynr}.edu/graduateCourse{graduatecoursenr}" ];
+        rr:objectMap [ rr:template "http://www.department{departmentnr}.university{universitynr}.edu/{graduatecoursename}" ];
     ].
 
 <#LecturerTeacherUndergraduateCourse>
     rr:logicalTable [ rr:sqlQuery """
-        SELECT lecturer.nr AS lecturernr, department.nr AS departmentnr, department.suborganizationof AS universitynr, undergraduatecourse.nr AS undergraduatecoursenr
+        SELECT faculty.name AS facultyname, department.nr AS departmentnr, department.suborganizationof AS universitynr, undergraduatecourse.name AS undergraduatecoursename
         FROM lecturer INNER JOIN faculty ON lecturer.nr=faculty.nr INNER JOIN department ON worksfor=department.nr INNER JOIN undergraduatecourse ON undergraduatecourse.teacher=faculty.nr
     """ ];
     rr:subjectMap [
-        rr:template "http://www.department{departmentnr}.university{universitynr}.edu/lecturer{lecturernr}";
+        rr:template "http://www.department{departmentnr}.university{universitynr}.edu/{facultyname}";
     ];
     rr:predicateObjectMap [
         rr:predicate ub:teacherOf;
-        rr:objectMap [ rr:template "http://www.department{departmentnr}.university{universitynr}.edu/undergraduateCourse{undergraduatecoursenr}" ];
+        rr:objectMap [ rr:template "http://www.department{departmentnr}.university{universitynr}.edu/{undergraduatecoursename}" ];
     ].
 
 <#UndergraduateStudent>
     rr:logicalTable [ rr:sqlQuery """
-        SELECT undergraduatestudent.nr AS undergraduatestudentnr, department.suborganizationof AS universitynr, undergraduatestudent.name AS undergraduatestudentname, memberof, telephone, emailaddress
+        SELECT department.suborganizationof AS universitynr, undergraduatestudent.name AS undergraduatestudentname, memberof, telephone, emailaddress
         FROM undergraduatestudent INNER JOIN department ON undergraduatestudent.memberof=department.nr
     """ ];
     rr:subjectMap [
-        rr:template "http://www.department{memberof}.university{universitynr}.edu/undergraduateStudent{undergraduatestudentnr}";
+        rr:template "http://www.department{memberof}.university{universitynr}.edu/{undergraduatestudentname}";
         rr:class ub:undergraduateStudent;
     ];
     rr:predicateObjectMap [
@@ -258,11 +258,11 @@
 
 <#UndergraduateStudentAdvisor>
     rr:logicalTable [ rr:sqlQuery """
-        SELECT department.nr AS departmentnr, department.suborganizationof AS universitynr, undergraduatestudent.nr AS undergraduatestudentnr, faculty.name AS facultyname
+        SELECT department.nr AS departmentnr, department.suborganizationof AS universitynr, undergraduatestudent.name AS undergraduatestudentname, faculty.name AS facultyname
         FROM undergraduatestudent INNER JOIN department ON undergraduatestudent.memberof=department.nr INNER JOIN faculty ON undergraduatestudent.advisor=faculty.nr
     """ ];
     rr:subjectMap [
-        rr:template "http://www.department{departmentnr}.university{universitynr}.edu/undergraduateStudent{undergraduatestudentnr}";
+        rr:template "http://www.department{departmentnr}.university{universitynr}.edu/{undergraduatestudentname}";
     ];
     rr:predicateObjectMap [
         rr:predicate ub:advisor;
@@ -271,11 +271,11 @@
 
 <#GraduateStudent>
     rr:logicalTable [ rr:sqlQuery """
-        SELECT graduatestudent.nr AS graduatestudentnr, department.suborganizationof AS universitynr, graduatestudent.name AS graduatestudentname, memberof, telephone, emailaddress, undergraduatedegreefrom
+        SELECT department.suborganizationof AS universitynr, graduatestudent.name AS graduatestudentname, memberof, telephone, emailaddress, undergraduatedegreefrom
         FROM graduatestudent INNER JOIN department ON graduatestudent.memberof=department.nr
     """ ];
     rr:subjectMap [
-        rr:template "http://www.department{memberof}.university{universitynr}.edu/graduateStudent{graduatestudentnr}";
+        rr:template "http://www.department{memberof}.university{universitynr}.edu/{graduatestudentname}";
         rr:class ub:graduateStudent;
     ];
     rr:predicateObjectMap [
@@ -301,11 +301,11 @@
 
 <#GraduateStudentAdvisor>
     rr:logicalTable [ rr:sqlQuery """
-        SELECT department.nr AS departmentnr, department.suborganizationof AS universitynr, graduatestudent.nr AS graduatestudentnr, faculty.name AS facultyname
+        SELECT department.nr AS departmentnr, department.suborganizationof AS universitynr, graduatestudent.name AS graduatestudentname, faculty.name AS facultyname
         FROM graduatestudent INNER JOIN department ON graduatestudent.memberof=department.nr INNER JOIN faculty ON graduatestudent.advisor=faculty.nr
     """ ];
     rr:subjectMap [
-        rr:template "http://www.department{departmentnr}.university{universitynr}.edu/graduateStudent{graduatestudentnr}";
+        rr:template "http://www.department{departmentnr}.university{universitynr}.edu/{graduatestudentname}";
     ];
     rr:predicateObjectMap [
         rr:predicate ub:advisor;
@@ -314,7 +314,7 @@
 
 <#GraduateStudentTeachingAssistant>
     rr:logicalTable [ rr:sqlQuery """
-        SELECT undergraduatecourse.nr AS undergraduatecoursenr, graduatestudent.nr AS graduatestudentnr, department.nr AS departmentnr, department.subOrganizationOf as universitynr
+        SELECT undergraduatecourse.name AS undergraduatecoursename, graduatestudent.nr AS graduatestudentnr, department.nr AS departmentnr, department.suborganizationof as universitynr
         FROM undergraduatecourse INNER JOIN graduatestudent ON undergraduatecourse.teachingassistant=graduatestudent.nr INNER JOIN department ON graduatestudent.memberof=department.nr
     """ ];
     rr:subjectMap [
@@ -323,7 +323,7 @@
     ];
     rr:predicateObjectMap [
         rr:predicate ub:teachingAssistantOf;
-        rr:objectMap [ rr:template "http://www.department{departmentnr}.university{universitynr}.edu/undergraduateCourse{undergraduatecoursenr}" ];
+        rr:objectMap [ rr:template "http://www.department{departmentnr}.university{universitynr}.edu/undergraduateCourse{undergraduatecoursename}" ];
     ].
 
 <#CoAuthorOfPublication>
