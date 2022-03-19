@@ -1,13 +1,12 @@
 @prefix rr: <http://www.w3.org/ns/r2rml#>.
 @prefix ub: <http://www.lehigh.edu/~zhp2/2004/0401/univ-bench.owl#>.
-@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>.
 
 
 <#University>
     rr:logicalTable [ rr:tableName "university" ];
     rr:subjectMap [
         rr:template "http://www.university{nr}.edu";
-        rr:class ub:university;
+        rr:class ub:University;
     ];
     rr:predicateObjectMap [
         rr:predicate ub:name;
@@ -22,7 +21,7 @@
     """ ];
     rr:subjectMap [
         rr:template "http://www.department{departmentnr}.university{universitynr}.edu";
-        rr:class ub:department;
+        rr:class ub:Department;
     ];
     rr:predicateObjectMap [
         rr:predicate ub:name;
@@ -41,7 +40,7 @@
     """ ];
     rr:subjectMap [
         rr:template "http://www.department{departmentnr}.university{universitynr}.edu/{facultyname}/{publicationname}";
-        rr:class ub:publication;
+        rr:class ub:Publication;
     ];
     rr:predicateObjectMap [
         rr:predicate ub:name;
@@ -60,7 +59,7 @@
     """ ];
     rr:subjectMap [
         rr:template "http://www.department{departmentnr}.university{universitynr}.edu/researchGroup{researchgroupnr}.edu";
-        rr:class ub:researchGroup;
+        rr:class ub:ResearchGroup;
     ];
     rr:predicateObjectMap [
         rr:predicate ub:suborganizationof;
@@ -75,7 +74,7 @@
     """ ];
     rr:subjectMap [
         rr:template "http://www.department{departmentnr}.university{universitynr}.edu/{undergraduatecoursename}";
-        rr:class ub:undergraduateCourse;
+        rr:class ub:UndergraduateCourse;
     ];
     rr:predicateObjectMap [
         rr:predicate ub:name;
@@ -90,7 +89,7 @@
     """ ];
     rr:subjectMap [
         rr:template "http://www.department{departmentnr}.university{universitynr}.edu/{graduatecoursename}";
-        rr:class ub:graduateCourse;
+        rr:class ub:GraduateCourse;
     ];
     rr:predicateObjectMap [
         rr:predicate ub:name;
@@ -98,17 +97,46 @@
     ].
 
 
+<#FullProfessor>
+    rr:logicalTable [ rr:sqlQuery """
+        SELECT department.nr AS departmentnr, faculty.name AS facultyname, department.suborganizationof AS universitynr
+        FROM professor INNER JOIN faculty ON professor.nr=faculty.nr INNER JOIN department ON faculty.worksfor=department.nr WHERE professor.professortype='fullProfessor'
+    """ ];
+    rr:subjectMap [
+        rr:template "http://www.department{departmentnr}.university{universitynr}.edu/{facultyname}";
+        rr:class ub:FullProfessor;
+    ].
+
+
+<#AssistantProfessor>
+    rr:logicalTable [ rr:sqlQuery """
+        SELECT department.nr AS departmentnr, faculty.name AS facultyname, department.suborganizationof AS universitynr
+        FROM professor INNER JOIN faculty ON professor.nr=faculty.nr INNER JOIN department ON faculty.worksfor=department.nr WHERE professor.professortype='assistantProfessor'
+    """ ];
+    rr:subjectMap [
+        rr:template "http://www.department{departmentnr}.university{universitynr}.edu/{facultyname}";
+        rr:class ub:AssistantProfessor;
+    ].
+
+
+<#AssociateProfessor>
+    rr:logicalTable [ rr:sqlQuery """
+        SELECT department.nr AS departmentnr, faculty.name AS facultyname, department.suborganizationof AS universitynr
+        FROM professor INNER JOIN faculty ON professor.nr=faculty.nr INNER JOIN department ON faculty.worksfor=department.nr WHERE professor.professortype='associateProfessor'
+    """ ];
+    rr:subjectMap [
+        rr:template "http://www.department{departmentnr}.university{universitynr}.edu/{facultyname}";
+        rr:class ub:AssociateProfessor;
+    ].
+
+
 <#Professor>
     rr:logicalTable [ rr:sqlQuery """
-        SELECT department.nr AS departmentnr, faculty.name AS facultyname, department.suborganizationof AS universitynr, professor.professortype AS professortype, researchinterest, headof
+        SELECT department.nr AS departmentnr, faculty.name AS facultyname, department.suborganizationof AS universitynr, researchinterest, headof
         FROM professor INNER JOIN faculty ON professor.nr=faculty.nr INNER JOIN department ON faculty.worksfor=department.nr
     """ ];
     rr:subjectMap [
         rr:template "http://www.department{departmentnr}.university{universitynr}.edu/{facultyname}";
-    ];
-    rr:predicateObjectMap [
-        rr:predicate rdf:type;
-        rr:objectMap [ rr:template "http://www.lehigh.edu/~zhp2/2004/0401/univ-bench.owl#{professortype}" ];
     ];
     rr:predicateObjectMap [
         rr:predicate ub:researchInterest;
@@ -127,7 +155,7 @@
     """ ];
     rr:subjectMap [
         rr:template "http://www.department{departmentnr}.university{universitynr}.edu/{facultyname}";
-        rr:class ub:lecturer;
+        rr:class ub:Lecturer;
     ].
 
 
@@ -204,7 +232,7 @@
     """ ];
     rr:subjectMap [
         rr:template "http://www.department{departmentnr}.university{universitynr}.edu/{undergraduatestudentname}";
-        rr:class ub:undergraduateStudent;
+        rr:class ub:UndergraduateStudent;
     ];
     rr:predicateObjectMap [
         rr:predicate ub:name;
@@ -245,7 +273,7 @@
     """ ];
     rr:subjectMap [
         rr:template "http://www.department{departmentnr}.university{universitynr}.edu/{graduatestudentname}";
-        rr:class ub:graduateStudent;
+        rr:class ub:GraduateStudent;
     ];
     rr:predicateObjectMap [
         rr:predicate ub:name;
@@ -290,7 +318,7 @@
     """ ];
     rr:subjectMap [
         rr:template "http://www.department{departmentnr}.university{universitynr}.edu/{graduatestudentname}";
-        rr:class ub:teachingAssistant;
+        rr:class ub:TeachingAssistant;
     ];
     rr:predicateObjectMap [
         rr:predicate ub:teachingAssistantOf;
