@@ -28,12 +28,12 @@
         rr:objectMap [ rr:column "name" ];
     ];
     rr:predicateObjectMap [
-        rr:predicate ub:suborganizationof;
+        rr:predicate ub:subOrganizationOf;
         rr:objectMap [ rr:template "http://www.university{universitynr}.edu" ];
     ].
 
 
-<#Publication>professor.professortype AS professortype,
+<#Publication>
     rr:logicalTable [ rr:sqlQuery """
         SELECT publication.name AS publicationname, faculty.name AS facultyname, department.suborganizationof AS universitynr, department.nr AS departmentnr
         FROM publication INNER JOIN faculty ON publication.mainauthor=faculty.nr INNER JOIN department ON faculty.worksfor=department.nr
@@ -62,7 +62,7 @@
         rr:class ub:ResearchGroup;
     ];
     rr:predicateObjectMap [
-        rr:predicate ub:suborganizationof;
+        rr:predicate ub:subOrganizationOf;
         rr:objectMap [ rr:template "http://www.department{departmentnr}.university{universitynr}.edu" ];
     ].
 
