@@ -35,7 +35,7 @@
 
 <#Publication>
     rr:logicalTable [ rr:sqlQuery """
-        SELECT publication.name AS publicationname, faculty.name AS facultyname, department.suborganizationof AS universitynr, department.nr AS departmentnr
+        SELECT publication.name AS publicationname, faculty.name AS facultyname, department.suborganizationof AS universitynr, department.nr AS departmentnr, publication.title AS publicationtitle, publication.abstract AS publicationabstract
         FROM publication INNER JOIN faculty ON publication.mainauthor=faculty.nr INNER JOIN department ON faculty.worksfor=department.nr
     """ ];
     rr:subjectMap [
@@ -45,6 +45,14 @@
     rr:predicateObjectMap [
         rr:predicate ub:name;
         rr:objectMap [ rr:column "publicationname" ];
+    ];
+    rr:predicateObjectMap [
+        rr:predicate ub:title;
+        rr:objectMap [ rr:column "publicationtitle" ];
+    ];
+    rr:predicateObjectMap [
+        rr:predicate ub:abstract;
+        rr:objectMap [ rr:column "publicationabstract" ];
     ];
     rr:predicateObjectMap [
         rr:predicate ub:publicationAuthor;
@@ -227,7 +235,7 @@
 
 <#UndergraduateStudent>
     rr:logicalTable [ rr:sqlQuery """
-        SELECT department.suborganizationof AS universitynr, undergraduatestudent.name AS undergraduatestudentname, department.nr AS departmentnr, telephone, emailaddress
+        SELECT department.suborganizationof AS universitynr, undergraduatestudent.name AS undergraduatestudentname, department.nr AS departmentnr, telephone, emailaddress, age
         FROM undergraduatestudent INNER JOIN department ON undergraduatestudent.memberof=department.nr
     """ ];
     rr:subjectMap [
@@ -245,6 +253,10 @@
     rr:predicateObjectMap [
         rr:predicate ub:telephone;
         rr:objectMap [ rr:column "telephone" ];
+    ];
+    rr:predicateObjectMap [
+        rr:predicate ub:age;
+        rr:objectMap [ rr:column "age" ];
     ];
     rr:predicateObjectMap [
         rr:predicate ub:memberOf;
