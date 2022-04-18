@@ -1,0 +1,11 @@
+PREFIX ub: <http://swat.cse.lehigh.edu/onto/univ-bench.owl#>
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+
+SELECT ?x ?y ?z
+WHERE {
+  ?x a ub:GraduateStudent .
+  ?x ub:takesCourse <http://www.department0.university0.edu/graduateCourse0> .
+  ?x ?sp ?y .
+  ?sp rdf:singletonPropertyOf ub:undergraduateDegreeFrom .
+  ?sp ub:graduationYear ?z .
+}
