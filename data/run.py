@@ -45,7 +45,7 @@ q2 = [
         'choices': [
 
             {
-                'name': 'SQL',
+                'name': 'MySQL',
                 'value': 'SQL'
             },
             {
