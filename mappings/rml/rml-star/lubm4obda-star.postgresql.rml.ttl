@@ -342,7 +342,7 @@
 
 <#GraduateStudentInnerStar>
     rml:logicalSource [ rml:query """
-        SELECT graduatestudent.nr AS graduatestudentnr, department.suborganizationof AS universitynr, graduatestudent.name AS graduatestudentname, department.nr AS departmentnr, undergraduatedegreefrom AS undergraduatedegreefrom
+        SELECT graduatestudent.nr AS graduatestudentnr, department.suborganizationof AS universitynr, graduatestudent.name AS graduatestudentname, department.nr AS departmentnr, undergraduatedegreefrom
         FROM graduateStudent INNER JOIN department ON graduateStudent.memberOf=department.nr """ ;
         rml:referenceFormulation rr:SQL2008 ;
     ];
