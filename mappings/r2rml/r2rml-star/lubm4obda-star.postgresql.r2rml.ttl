@@ -305,11 +305,11 @@
 <#GraduateStudentStar>
     rr:logicalTable [ rr:sqlQuery """
         SELECT department.suborganizationof AS universitynr, graduatestudent.name AS graduatestudentname, department.nr AS departmentnr, undergraduatedegreefrom, undergraduatedegreeyear
-        FROM graduateStudent INNER JOIN department ON graduateStudent.memberOf=department.nr
+        FROM graduatestudent INNER JOIN department ON graduatestudent.memberof=department.nr
     """ ];
     rr:subjectMap [
         rr:termType star:RDFStarTermType;
-        star:subject [ http://www.department{departmentnr}.university{universitynr}.edu/{graduatestudentname} ];
+        star:subject [ rr:template "http://www.department{departmentnr}.university{universitynr}.edu/{graduatestudentname}" ];
         star:predicate  [ rr:constant ub:undergraduateDegreeFrom ];
         star:object [ rr:template "http://www.university{undergraduatedegreefrom}.edu" ];
     ];
