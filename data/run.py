@@ -67,16 +67,16 @@ os.system(f'{run_path}./generate.sh -o /temp/ --consolidate Full --format {r2} -
 
 
 if r2 == 'SQL':
-    os.system(f"cat /code/schema_university.sql > {output_path}universities.sql")
+    os.system(f"cat /code/schema_university.sql > {output_path}lubm4obda.sql")
 elif r2 == 'PostgreSQL':
-    os.system(f"cat /code/schema_university_psql.sql > {output_path}universities.sql")
+    os.system(f"cat /code/schema_university_psql.sql > {output_path}lubm4obda.sql")
 
-os.system(f"cat /temp/Universities-1.sql >> {output_path}universities.sql")
+os.system(f"cat /temp/Universities-1.sql >> {output_path}lubm4obda.sql")
 
 if r2 == 'SQL':
-    os.system(f"echo 'ALTER TABLE graduateStudent CHANGE age undergraduateDegreeYear int;' >> {output_path}universities.sql")
+    os.system(f"echo 'ALTER TABLE graduateStudent CHANGE age undergraduateDegreeYear int;' >> {output_path}lubm4obda.sql")
 elif r2 == 'PostgreSQL':
-    os.system(f"echo 'ALTER TABLE graduateStudent RENAME COLUMN age TO undergraduateDegreeYear;' >> {output_path}universities.sql")
+    os.system(f"echo 'ALTER TABLE graduateStudent RENAME COLUMN age TO undergraduateDegreeYear;' >> {output_path}lubm4obda.sql")
 
 
 print('')
