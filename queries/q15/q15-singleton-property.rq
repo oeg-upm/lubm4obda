@@ -7,5 +7,5 @@ WHERE {
   ?x ub:takesCourse <http://www.department0.university0.edu/graduateCourse0> .
   ?x ?sp ?y .
   ?sp rdf:singletonPropertyOf ub:undergraduateDegreeFrom .
-  ?sp ub:graduationYear ?z .
+  ?sp ub:yearOfAward ?z .
 }

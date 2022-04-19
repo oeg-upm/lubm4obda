@@ -5,5 +5,5 @@ SELECT ?x
 WHERE {
   <http://www.department14.university0.edu/graduateStudent106> ?sp <http://www.university1.edu> .
   ?sp rdf:singletonPropertyOf ub:undergraduateDegreeFrom .
-  ?sp ub:graduationYear ?x .
+  ?sp ub:yearOfAward ?x .
 }

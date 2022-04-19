@@ -319,7 +319,7 @@
         rr:object ub:undergraduateDegreeFrom;
     ];
     rr:predicateObjectMap [
-        rr:predicate ub:graduationYear;
+        rr:predicate ub:yearOfAward;
         rr:objectMap [ rr:column "undergraduatedegreeyear" ];
     ].
 

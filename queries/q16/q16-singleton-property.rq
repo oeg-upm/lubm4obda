@@ -6,7 +6,7 @@ WHERE {
   ?x a ub:GraduateStudent .
   ?x ?sp ?y .
   ?sp rdf:singletonPropertyOf ub:undergraduateDegreeFrom .
-  ?sp ub:graduationYear ?w .
+  ?sp ub:yearOfAward ?w .
   ?x ub:memberOf ?z .
   ?y a ub:University .
   ?z a ub:Department .

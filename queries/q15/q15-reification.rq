@@ -8,5 +8,5 @@ WHERE {
   ?r rdf:subject ?x .
   ?r rdf:predicate ub:undergraduateDegreeFrom .
   ?r rdf:object ?y .
-  ?r ub:graduationYear ?z .
+  ?r ub:yearOfAward ?z .
 }

@@ -6,5 +6,5 @@ WHERE {
   ?r rdf:subject <http://www.department14.university0.edu/graduateStudent106> .
   ?r rdf:predicate ub:undergraduateDegreeFrom .
   ?r rdf:object <http://www.university1.edu> .
-  ?r ub:graduationYear ?x .
+  ?r ub:yearOfAward ?x .
 }

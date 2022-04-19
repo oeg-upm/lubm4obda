@@ -3,7 +3,7 @@ PREFIX ub: <http://swat.cse.lehigh.edu/onto/univ-bench.owl#>
 SELECT ?x ?y ?z ?w
 WHERE {
   ?x a ub:GraduateStudent .
-  << ?x ub:undergraduateDegreeFrom ?y >> ub:graduationYear ?w .
+  << ?x ub:undergraduateDegreeFrom ?y >> ub:yearOfAward ?w .
   ?x ub:memberOf ?z .
   ?y a ub:University .
   ?z a ub:Department .

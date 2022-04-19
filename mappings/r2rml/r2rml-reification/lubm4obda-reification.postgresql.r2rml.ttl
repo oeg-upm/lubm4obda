@@ -320,7 +320,7 @@
         rr:objectMap [ rr:template "http://www.university{undergraduatedegreefrom}.edu" ];
     ];
     rr:predicateObjectMap [
-        rr:predicate ub:graduationYear;
+        rr:predicate ub:yearOfAward;
         rr:objectMap [ rr:column "undergraduatedegreeyear" ];
     ].
 
