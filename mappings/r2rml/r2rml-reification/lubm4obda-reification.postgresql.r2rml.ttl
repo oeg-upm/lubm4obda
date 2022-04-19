@@ -197,10 +197,6 @@
         rr:objectMap [ rr:template "http://www.university{doctoraldegreefrom}.edu" ];
     ];
     rr:predicateObjectMap [
-        rr:predicate ub:masterDegreeFrom;
-        rr:objectMap [ rr:template "http://www.university{masterdegreefrom}.edu" ];
-    ];
-    rr:predicateObjectMap [
         rr:predicate ub:undergraduateDegreeFrom;
         rr:objectMap [ rr:template "http://www.university{undergraduatedegreefrom}.edu" ];
     ].
