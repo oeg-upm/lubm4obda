@@ -75,6 +75,11 @@ os.system(f"cat /temp/Universities-1.sql >> {output_path}universities.sql")
 
 os.system(f"echo 'ALTER TABLE graduateStudent RENAME COLUMN age TO undergraduateDegreeYear;' >> {output_path}universities.sql")
 
+if r2 == 'SQL':
+    os.system(f"echo 'ALTER TABLE graduateStudent CHANGE age undergraduateDegreeYear int;' >> {output_path}universities.sql")
+elif r2 == 'PostgreSQL':
+    os.system(f"echo 'ALTER TABLE graduateStudent RENAME COLUMN age TO undergraduateDegreeYear;' >> {output_path}universities.sql")
+
 
 print('')
 print(colored("##########################################################", attrs=['bold']))
