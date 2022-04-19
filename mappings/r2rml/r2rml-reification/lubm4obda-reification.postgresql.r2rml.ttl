@@ -273,7 +273,7 @@
 
 <#GraduateStudent>
     rr:logicalTable [ rr:sqlQuery """
-        SELECT department.suborganizationof AS universitynr, graduatestudent.name AS graduatestudentname, department.nr AS departmentnr, telephone, emailaddress, undergraduatedegreefrom
+        SELECT department.suborganizationof AS universitynr, graduatestudent.name AS graduatestudentname, department.nr AS departmentnr, telephone, emailaddress
         FROM graduatestudent INNER JOIN department ON graduatestudent.memberof=department.nr
     """ ];
     rr:subjectMap [
