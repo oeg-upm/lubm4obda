@@ -1,4 +1,4 @@
-#!/usr/bin/env python3
+    #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 
 import os
@@ -36,6 +36,12 @@ q1 = [
 ]
 
 r1 = prompt(q1)["q"]
+
+try:
+    int(r1)
+except:
+    print(colored("\nERROR: you need to provide a valid integer for the scale factor.\n", attrs=['bold']))
+    sys.exit()
 
 q2 = [
     {
