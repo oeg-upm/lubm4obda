@@ -83,8 +83,10 @@ os.system(f"cat /temp/Universities-1.sql >> {output_path}{output_file_name}")
 
 if r2 == 'SQL':
     os.system(f"echo 'ALTER TABLE graduateStudent CHANGE age undergraduateDegreeYear int;' >> {output_path}{output_file_name}")
+    os.system(f"echo 'UPDATE graduateStudent set undergraduateDegreeYear=\"2017\" where undergraduateDegreeYear=27;' >> {output_path}{output_file_name}")
 elif r2 == 'PostgreSQL':
-    os.system(f"echo 'ALTER TABLE graduateStudent RENAME COLUMN age TO undergraduateDegreeYear;' >> {output_path}{output_file_name}")
+    os.system(f"echo 'ALTER TABLE graduatestudent RENAME COLUMN age TO undergraduatedegreeyear;' >> {output_path}{output_file_name}")
+    os.system(f"echo 'UPDATE graduatestudent set undergraduatedegreeyear=2017 where undergraduatedegreeyear=27;' >> {output_path}{output_file_name}")
 
 
 print('')
