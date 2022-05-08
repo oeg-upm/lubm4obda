@@ -1,6 +1,7 @@
 @prefix rr: <http://www.w3.org/ns/r2rml#>.
 @prefix ub: <http://swat.cse.lehigh.edu/onto/univ-bench.owl#>.
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>.
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#>.
 
 
 <#University>
@@ -320,7 +321,7 @@
     ];
     rr:predicateObjectMap [
         rr:predicate ub:yearOfAward;
-        rr:objectMap [ rr:column "undergraduatedegreeyear" ];
+        rr:objectMap [ rr:column "undergraduatedegreeyear"; rr:datatype xsd:integer ];
     ].
 
 
