@@ -1,0 +1,7 @@
+PREFIX ub: <http://swat.cse.lehigh.edu/onto/univ-bench.owl#>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+
+SELECT ?x ?y ?z
+WHERE {
+  << ?x ?y ?z >> ub:yearOfAward "2017"^^xsd:integer .
+}
