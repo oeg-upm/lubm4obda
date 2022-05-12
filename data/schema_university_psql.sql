@@ -92,7 +92,7 @@ CREATE TABLE publication (
   nr integer,
   name varchar(25),
   title varchar(100),
-  abstract varchar(250),
+  abstract varchar(1000),
   mainAuthor integer,
   primary key (nr)
 );
