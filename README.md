@@ -29,7 +29,7 @@ Then you just need to follow the instructions prompted: provide scaling factor a
 
 ## Mappings
 
-The **[mappings]** directory of this GitHub repository contains all the **[R2RML](https://www.w3.org/TR/r2rml/)** and **[RML](https://rml.io/specs/rml/)** documents. The following mappings are available:
+The **[mappings](https://github.com/oeg-upm/lubm4obda/tree/main/mappings)** directory of this GitHub repository contains all the **[R2RML](https://www.w3.org/TR/r2rml/)** and **[RML](https://rml.io/specs/rml/)** documents. The following mappings are available:
 
 - **[R2RML](https://github.com/oeg-upm/lubm4obda/tree/main/mappings/r2rml)**:
   - [Basic](https://github.com/oeg-upm/lubm4obda/blob/main/mappings/r2rml/lubm4obda.r2rml.ttl), without statement-level.
