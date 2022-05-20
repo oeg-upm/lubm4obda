@@ -21,11 +21,11 @@ The benchmark generates data compatible with **[MySQL](https://www.mysql.com/)**
 - Download the data dumps for scale factors 1, 10, 100 and 1000 available in **[Zenodo]()**.
 - Use the **[Docker]()** container with the data generator to produce the data with custom scaling factors.
 
-To use the docker container with the data generator you just need to run the following command:
+To use the docker container with the data generator just run the following command:
 
 `docker`
 
-Then you just need to follow the instructions prompted: provide scaling factor and select DBMS (MySQL or PostgreSQL).
+Then follow the instructions prompted: provide scaling factor and select DBMS (MySQL or PostgreSQL).
 
 ## Mappings
 
