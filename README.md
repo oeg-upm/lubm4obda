@@ -49,4 +49,4 @@ The ontology is available in the **[ontology](https://github.com/oeg-upm/lubm4ob
 
 ## Queries
 
-The queries are available in the **[queries]**(https://github.com/oeg-upm/lubm4obda/tree/main/queries) directory of this GitHub repository. Keep in mind that **basic** mappings should be used for **queries 1-14**. There are three different versions of **queries 15-18** depending on the annotation approach (standard reification, singleton properties or RDF-star), with each approach having its corresponding mapping.
+The queries are available in the **[queries](https://github.com/oeg-upm/lubm4obda/tree/main/queries)** directory of this GitHub repository. Keep in mind that **basic** mappings should be used for **queries 1-14**. There are three different versions of **queries 15-18** for each annotation approach (standard reification, singleton properties or RDF-star), with each approach having its corresponding mapping.
