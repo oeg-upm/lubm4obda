@@ -16,7 +16,7 @@ LUBM4OBDA is an extension of the popular LUBM benchmark to evaluate OBDA engines
 
 ## Data
 
-The benchmark generates data compatible with **[MySQL](https://www.mysql.com/)** and **[PostgreSQL](https://www.postgresql.org/)**. There are two options to obtain the data:
+The benchmark generates data compatible with **[MySQL](https://www.mysql.com/)** and **[PostgreSQL](https://www.postgresql.org/)**. There are two options to obtain SQL dumps:
 
 - Download the data dumps for scale factors 1, 10, 100 and 1000 available in **[Zenodo]()**.
 - Use the **[Docker]()** container with the data generator to produce the data with custom scaling factors.
