@@ -32,13 +32,13 @@ Then you just need to follow the instructions prompted: provide scaling factor a
 The **[mappings](https://github.com/oeg-upm/lubm4obda/tree/main/mappings)** directory of this GitHub repository contains all the **[R2RML](https://www.w3.org/TR/r2rml/)** and **[RML](https://rml.io/specs/rml/)** documents. The following mappings are available:
 
 - **[R2RML](https://github.com/oeg-upm/lubm4obda/tree/main/mappings/r2rml)**:
-  - [Basic](https://github.com/oeg-upm/lubm4obda/blob/main/mappings/r2rml/lubm4obda.r2rml.ttl), without statement-level.
+  - [Basic](https://github.com/oeg-upm/lubm4obda/blob/main/mappings/r2rml/lubm4obda.r2rml.ttl), without statement-level metadata.
   - [Standard reification](https://github.com/oeg-upm/lubm4obda/blob/main/mappings/r2rml/lubm4obda-reification.r2rml.ttl).
   - [Singleton property](https://github.com/oeg-upm/lubm4obda/blob/main/mappings/r2rml/lubm4obda-singleton-property.r2rml.ttl).
   - [R2RML-star](https://github.com/oeg-upm/lubm4obda/blob/main/mappings/r2rml/lubm4obda-star.r2rml.ttl).
 
 - **[RML](https://github.com/oeg-upm/lubm4obda/tree/main/mappings/rml)**:
-  - [Basic](https://github.com/oeg-upm/lubm4obda/blob/main/mappings/rml/lubm4obda.rml.ttl), without statement-level.
+  - [Basic](https://github.com/oeg-upm/lubm4obda/blob/main/mappings/rml/lubm4obda.rml.ttl), without statement-level metadata.
   - [Standard reification](https://github.com/oeg-upm/lubm4obda/blob/main/mappings/rml/lubm4obda-reification.rml.ttl).
   - [Singleton property](https://github.com/oeg-upm/lubm4obda/blob/main/mappings/rml/lubm4obda-singleton-property.rml.ttl).
   - [RML-star](https://github.com/oeg-upm/lubm4obda/blob/main/mappings/rml/lubm4obda-star.rml.ttl).
