@@ -28,13 +28,13 @@ Then follow the instructions prompted: provide scaling factor and select the DBM
 The **[mappings](https://github.com/oeg-upm/lubm4obda/tree/main/mappings)** directory of this GitHub repository contains all the R2RML and RML documents. The following mappings are available:
 
 - **[R2RML](https://github.com/oeg-upm/lubm4obda/tree/main/mappings/r2rml)**:
-  - [Basic](https://github.com/oeg-upm/lubm4obda/blob/main/mappings/r2rml/lubm4obda.r2rml.ttl), without statement-level metadata.
+  - [Original](https://github.com/oeg-upm/lubm4obda/blob/main/mappings/r2rml/lubm4obda.r2rml.ttl), without statement-level metadata.
   - [Standard reification](https://github.com/oeg-upm/lubm4obda/blob/main/mappings/r2rml/lubm4obda-reification.r2rml.ttl).
   - [Singleton property](https://github.com/oeg-upm/lubm4obda/blob/main/mappings/r2rml/lubm4obda-singleton-property.r2rml.ttl).
   - [R2RML-star](https://github.com/oeg-upm/lubm4obda/blob/main/mappings/r2rml/lubm4obda-star.r2rml.ttl).
 
 - **[RML](https://github.com/oeg-upm/lubm4obda/tree/main/mappings/rml)**:
-  - [Basic](https://github.com/oeg-upm/lubm4obda/blob/main/mappings/rml/lubm4obda.rml.ttl), without statement-level metadata.
+  - [Original](https://github.com/oeg-upm/lubm4obda/blob/main/mappings/rml/lubm4obda.rml.ttl), without statement-level metadata.
   - [Standard reification](https://github.com/oeg-upm/lubm4obda/blob/main/mappings/rml/lubm4obda-reification.rml.ttl).
   - [Singleton property](https://github.com/oeg-upm/lubm4obda/blob/main/mappings/rml/lubm4obda-singleton-property.rml.ttl).
   - [RML-star](https://github.com/oeg-upm/lubm4obda/blob/main/mappings/rml/lubm4obda-star.rml.ttl).
@@ -45,7 +45,7 @@ The ontology is available in the **[ontology](https://github.com/oeg-upm/lubm4ob
 
 ## Queries
 
-The queries are available in the **[queries](https://github.com/oeg-upm/lubm4obda/tree/main/queries)** directory of this GitHub repository. Keep in mind that **basic** mappings should be used for **queries 1-14**. There are three different versions of **queries 15-18**, one for each statement-level metadata approach (standard reification, singleton property or RDF-star), with each approach having its corresponding mapping.
+The queries are available in the **[queries](https://github.com/oeg-upm/lubm4obda/tree/main/queries)** directory of this GitHub repository. Keep in mind that **original** mappings should be used for **queries 1-14**. There are three different versions of **queries 15-18**, one for each statement-level metadata approach (standard reification, singleton property or RDF-star), with each approach having its corresponding mapping.
 
 
 Generate image:
