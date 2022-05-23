@@ -21,11 +21,11 @@ To use the docker container with the data generator just run the following comma
 
 `docker run -it oegdataintegration/lubm4obda`
 
-Then follow the instructions prompted: provide scaling factor and select the RDBMS (MySQL or PostgreSQL).
+Then follow the instructions prompted: provide the scaling factor and select the RDBMS (MySQL or PostgreSQL).
 
 ## Mappings
 
-The **[mappings](https://github.com/oeg-upm/lubm4obda/tree/main/mappings)** directory of this GitHub repository contains all the R2RML and RML documents. The following mappings are available:
+The **[mappings](https://github.com/oeg-upm/lubm4obda/tree/main/mappings)** directory of this GitHub repository contains all the R2RML and RML documents. The following mappings are provided:
 
 - **[R2RML](https://github.com/oeg-upm/lubm4obda/tree/main/mappings/r2rml)**:
   - [Original](https://github.com/oeg-upm/lubm4obda/blob/main/mappings/r2rml/lubm4obda.r2rml.ttl), without meta knowledge.
