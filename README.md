@@ -4,7 +4,7 @@
 
 **The LUBM4OBDA Benchmark** is an extension of the popular **[LUBM Benchmark](http://swat.cse.lehigh.edu/projects/lubm/)** to evaluate Ontology-Based Data Access (OBDA) engines over relational databases. In addition, LUBM4OBDA considers meta knowledge (also called reification or statement-level metadata) benchmarking. The main characteristics of LUBM4OBDA are:
 
-- SQL dumps for **[MySQL](https://www.mysql.com/)** and **[PostgreSQL](https://www.postgresql.org/)**.
+- SQL data dumps for **[MySQL](https://www.mysql.com/)** and **[PostgreSQL](https://www.postgresql.org/)**.
 - Data generator for custom scaling factors.
 - Original **[LUBM query set](http://swat.cse.lehigh.edu/projects/lubm/queries-sparql.txt)** (queries 1-14), without meta knowledge.
 - Meta knowledge query set for _standard reification_, _singleton property_ and _SPARQL-star_ (queries 15-18).
@@ -12,9 +12,9 @@
 
 ## Data
 
-There are two options to obtain the SQL dumps:
+There are two options to obtain the SQL data dumps:
 
-- Download the SQL dumps for scaling factors 1, 10, 100 and 1000 from **Zenodo**.
+- Download the SQL data dumps for scaling factors 1, 10, 100 and 1000 from **Zenodo**.
 - Use the **[Docker](https://hub.docker.com/r/oegdataintegration/lubm4obda)** container with the data generator to produce the data with **custom** scaling factors.
 
 To use the docker container with the data generator just run the following command from the terminal:
