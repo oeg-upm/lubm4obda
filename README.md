@@ -6,7 +6,7 @@
 
 - SQL data dumps for **[MySQL](https://www.mysql.com/)** and **[PostgreSQL](https://www.postgresql.org/)**.
 - Data generator for custom scaling factors.
-- Original **[LUBM query set](http://swat.cse.lehigh.edu/projects/lubm/queries-sparql.txt)** (queries 1-14), without meta knowledge.
+- Original **[LUBM query set](http://swat.cse.lehigh.edu/projects/lubm/queries-sparql.txt)** (queries 1-14).
 - Meta knowledge query set for _standard reification_, _singleton property_ and _SPARQL-star_ (queries 15-18).
 - **[R2RML](https://www.w3.org/TR/r2rml/)** and **[RML](https://rml.io/specs/rml/)** mappings.
 
