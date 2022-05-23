@@ -17,11 +17,11 @@ There are two options to obtain the SQL dumps:
 - Download the SQL dumps for scaling factors 1, 10, 100 and 1000 from **[Zenodo]()**.
 - Use the **[Docker]()** container with the data generator to produce the data with **custom** scaling factors.
 
-To use the docker container with the data generator just run the following command:
+To use the docker container with the data generator just run the following command from the terminal:
 
-`docker`
+`docker pull oegdataintegration/lubm4obda`
 
-Then follow the instructions prompted: provide scaling factor and select the DBMS (MySQL or PostgreSQL).
+Then follow the instructions prompted: provide scaling factor and select the RDBMS (MySQL or PostgreSQL).
 
 ## Mappings
 
