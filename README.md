@@ -19,7 +19,7 @@ There are two options to obtain the SQL dumps:
 
 To use the docker container with the data generator just run the following command from the terminal:
 
-`docker pull oegdataintegration/lubm4obda`
+`docker run -it oegdataintegration/lubm4obda`
 
 Then follow the instructions prompted: provide scaling factor and select the RDBMS (MySQL or PostgreSQL).
 
@@ -46,12 +46,3 @@ The ontology is available in the **[ontology](https://github.com/oeg-upm/lubm4ob
 ## Queries
 
 The queries are available in the **[queries](https://github.com/oeg-upm/lubm4obda/tree/main/queries)** directory of this GitHub repository. Keep in mind that **original** mappings should be used for **queries 1-14**. There are three different versions of **queries 15-18**, one for each statement-level metadata approach (standard reification, singleton property or RDF-star), with each approach having its corresponding mapping.
-
-
-Generate image:
-
-`docker build -t lubm4obda .`
-
-Run generator:
-
-`docker run -itv "$(pwd)":/output lubm4obda`
