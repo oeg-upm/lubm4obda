@@ -2,7 +2,7 @@
 <img src="https://github.com/oeg-upm/lubm4obda/blob/main/logo.png" height="280" alt="morph">
 </p>
 
-**The LUBM4OBDA Benchmark** is an extension of the popular **[LUBM Benchmark](http://swat.cse.lehigh.edu/projects/lubm/)** to evaluate Ontology-Based Data Access (OBDA) engines over relational databases. In addition, LUBM4OBDA considers meta knowledge (also called statement-level metadata or reification) benchmarking. The main characteristics of LUBM4OBDA are:
+**The LUBM4OBDA Benchmark** is an extension of the popular **[LUBM Benchmark](http://swat.cse.lehigh.edu/projects/lubm/)** to evaluate Ontology-Based Data Access (OBDA) engines over relational databases. In addition, LUBM4OBDA considers meta knowledge (also called reification or statement-level metadata) benchmarking. The main characteristics of LUBM4OBDA are:
 
 - SQL dumps for **[MySQL](https://www.mysql.com/)** and **[PostgreSQL](https://www.postgresql.org/)**.
 - Data generator for custom scaling factors.
