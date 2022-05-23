@@ -2,11 +2,11 @@
 <img src="https://github.com/oeg-upm/lubm4obda/blob/main/logo.png" height="280" alt="morph">
 </p>
 
-**The LUBM4OBDA Benchmark** is an extension of the popular **[LUBM Benchmark](http://swat.cse.lehigh.edu/projects/lubm/)** to evaluate OBDA engines over relational databases:
+**The LUBM4OBDA Benchmark** is an extension of the popular **[LUBM Benchmark](http://swat.cse.lehigh.edu/projects/lubm/)** to evaluate Ontology-Based Data Access (OBDA) engines over relational databases. LUBM4OBDA also adds meta knowledge (also called statement-level metadata or reification) benchmarking to LUBM. The main characteristics of LUBM4OBDA are:
 
 - SQL dumps for **[MySQL](https://www.mysql.com/)** and **[PostgreSQL](https://www.postgresql.org/)**.
 - Data generator for custom scaling factors.
-- Original **[LUBM query set](http://swat.cse.lehigh.edu/projects/lubm/queries-sparql.txt)** (queries 1-14).
+- Original **[LUBM query set](http://swat.cse.lehigh.edu/projects/lubm/queries-sparql.txt)** (queries 1-14), without meta knowledge.
 - Meta knowledge query set for _standard reification_, _singleton property_ and _SPARQL-star_ (queries 15-18).
 - **[R2RML](https://www.w3.org/TR/r2rml/)** and **[RML](https://rml.io/specs/rml/)** mappings.
 
@@ -41,7 +41,7 @@ The **[mappings](https://github.com/oeg-upm/lubm4obda/tree/main/mappings)** dire
 
 ## Ontology
 
-The ontology is available in the **[ontology](https://github.com/oeg-upm/lubm4obda/blob/main/ontology/univ-bench.owl)** directory of this GitHub repository.
+The **Univ-Bench ontology** is available in the **[ontology](https://github.com/oeg-upm/lubm4obda/blob/main/ontology/univ-bench.owl)** directory of this GitHub repository.
 
 ## Queries
 
