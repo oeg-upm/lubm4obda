@@ -11,7 +11,6 @@ RUN git clone https://github.com/LiUGraphQL/LinGBM.git
 WORKDIR /repo/LinGBM/tools/datasetgen
 
 RUN mvn clean install
-RUN ./generate.sh --format SQL --consolidate Maximal -u 2
 
 RUN mkdir /code
 COPY ./ /code/
