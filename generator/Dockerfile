@@ -15,6 +15,8 @@ RUN mvn clean install
 RUN mkdir /code
 COPY ./ /code/
 
+RUN mkdir /output
+
 RUN python3 -m pip install -r /code/requirements.txt
 
 
