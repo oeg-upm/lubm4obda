@@ -21,7 +21,7 @@ There are two options to obtain the SQL data dumps:
 
 To use the docker container with the data generator just run the following command from the terminal:
 
-`docker run -it oegdataintegration/lubm4obda`
+`docker run -itv "$(pwd)":/output oegdataintegration/lubm4obda`
 
 Then follow the instructions prompted: provide the scaling factor and select the RDBMS (MySQL or PostgreSQL).
 
