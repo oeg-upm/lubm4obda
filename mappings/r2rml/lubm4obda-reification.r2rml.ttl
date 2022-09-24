@@ -311,6 +311,7 @@
     rr:subjectMap [
         rr:column "graduatestudentnr";
         rr:termType rr:BlankNode;
+        rr:class rdf:Statement;
     ];
     rr:predicateObjectMap [
         rr:predicate rdf:subject;
