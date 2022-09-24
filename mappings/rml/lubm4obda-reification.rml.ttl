@@ -329,6 +329,7 @@
     rr:subjectMap [
         rml:reference "graduatestudentnr";
         rr:termType rr:BlankNode;
+        rr:class rdf:Statement;
     ];
     rr:predicateObjectMap [
         rr:predicate rdf:subject;
