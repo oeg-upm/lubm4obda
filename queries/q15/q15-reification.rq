@@ -5,6 +5,7 @@ SELECT ?x ?y ?z
 WHERE {
   ?x a ub:GraduateStudent .
   ?x ub:takesCourse <http://www.department0.university0.edu/graduateCourse0> .
+  ?r a rdf:Statement .
   ?r rdf:subject ?x .
   ?r rdf:predicate ub:undergraduateDegreeFrom .
   ?r rdf:object ?y .

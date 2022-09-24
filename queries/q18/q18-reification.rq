@@ -4,6 +4,7 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 
 SELECT ?x ?y ?z
 WHERE {
+  ?r a rdf:Statement .
   ?r rdf:subject ?x .
   ?r rdf:predicate ?y .
   ?r rdf:object ?z .

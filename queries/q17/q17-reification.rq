@@ -3,6 +3,7 @@ PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
 
 SELECT ?x
 WHERE {
+  ?r a rdf:Statement .
   ?r rdf:subject <http://www.department14.university0.edu/graduateStudent106> .
   ?r rdf:predicate ub:undergraduateDegreeFrom .
   ?r rdf:object <http://www.university1.edu> .
