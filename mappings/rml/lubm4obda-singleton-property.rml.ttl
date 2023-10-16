@@ -1,19 +1,18 @@
-@prefix rr: <http://www.w3.org/ns/r2rml#>.
-@prefix rml: <http://semweb.mmlab.be/ns/rml#>.
+@prefix rml: <http://w3id.org/rml/>.
 @prefix ub: <http://swat.cse.lehigh.edu/onto/univ-bench.owl#>.
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>.
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#>.
 
 
 <#University>
-    rml:logicalSource [ rr:tableName "university" ];
-    rr:subjectMap [
-        rr:template "http://www.university{nr}.edu";
-        rr:class ub:University;
+    rml:logicalSource [ rml:tableName "university" ];
+    rml:subjectMap [
+        rml:template "http://www.university{nr}.edu";
+        rml:class ub:University;
     ];
-    rr:predicateObjectMap [
-        rr:predicate ub:name;
-        rr:objectMap [ rml:reference "name" ];
+    rml:predicateObjectMap [
+        rml:predicate ub:name;
+        rml:objectMap [ rml:reference "name" ];
     ].
 
 
@@ -21,19 +20,19 @@
     rml:logicalSource [ rml:query """
         SELECT nr AS departmentnr, subOrganizationOf AS universitynr, name
         FROM department """ ;
-        rml:referenceFormulation rr:SQL2008 ;
+        rml:referenceFormulation rml:SQL2008 ;
     ];
-    rr:subjectMap [
-        rr:template "http://www.department{departmentnr}.university{universitynr}.edu";
-        rr:class ub:Department;
+    rml:subjectMap [
+        rml:template "http://www.department{departmentnr}.university{universitynr}.edu";
+        rml:class ub:Department;
     ];
-    rr:predicateObjectMap [
-        rr:predicate ub:name;
-        rr:objectMap [ rml:reference "name" ];
+    rml:predicateObjectMap [
+        rml:predicate ub:name;
+        rml:objectMap [ rml:reference "name" ];
     ];
-    rr:predicateObjectMap [
-        rr:predicate ub:subOrganizationOf;
-        rr:objectMap [ rr:template "http://www.university{universitynr}.edu" ];
+    rml:predicateObjectMap [
+        rml:predicate ub:subOrganizationOf;
+        rml:objectMap [ rml:template "http://www.university{universitynr}.edu" ];
     ].
 
 
@@ -41,27 +40,27 @@
     rml:logicalSource [ rml:query """
         SELECT publication.name AS publicationname, faculty.name AS facultyname, department.subOrganizationOf AS universitynr, department.nr AS departmentnr, publication.title AS publicationtitle, publication.abstract AS publicationabstract
         FROM publication INNER JOIN faculty ON publication.mainauthor=faculty.nr INNER JOIN department ON faculty.worksFor=department.nr """ ;
-        rml:referenceFormulation rr:SQL2008 ;
+        rml:referenceFormulation rml:SQL2008 ;
     ];
-    rr:subjectMap [
-        rr:template "http://www.department{departmentnr}.university{universitynr}.edu/{facultyname}/{publicationname}";
-        rr:class ub:Publication;
+    rml:subjectMap [
+        rml:template "http://www.department{departmentnr}.university{universitynr}.edu/{facultyname}/{publicationname}";
+        rml:class ub:Publication;
     ];
-    rr:predicateObjectMap [
-        rr:predicate ub:name;
-        rr:objectMap [ rml:reference "publicationname" ];
+    rml:predicateObjectMap [
+        rml:predicate ub:name;
+        rml:objectMap [ rml:reference "publicationname" ];
     ];
-    rr:predicateObjectMap [
-        rr:predicate ub:title;
-        rr:objectMap [ rml:reference "publicationtitle" ];
+    rml:predicateObjectMap [
+        rml:predicate ub:title;
+        rml:objectMap [ rml:reference "publicationtitle" ];
     ];
-    rr:predicateObjectMap [
-        rr:predicate ub:abstract;
-        rr:objectMap [ rml:reference "publicationabstract" ];
+    rml:predicateObjectMap [
+        rml:predicate ub:abstract;
+        rml:objectMap [ rml:reference "publicationabstract" ];
     ];
-    rr:predicateObjectMap [
-        rr:predicate ub:publicationAuthor;
-        rr:objectMap [ rr:template "http://www.department{departmentnr}.university{universitynr}.edu/{facultyname}" ];
+    rml:predicateObjectMap [
+        rml:predicate ub:publicationAuthor;
+        rml:objectMap [ rml:template "http://www.department{departmentnr}.university{universitynr}.edu/{facultyname}" ];
     ].
 
 
@@ -69,15 +68,15 @@
     rml:logicalSource [ rml:query """
         SELECT researchGroup.nr AS researchgroupnr, researchGroup.subOrganizationOf AS departmentnr, department.subOrganizationOf AS universitynr
         FROM researchGroup INNER JOIN department ON researchGroup.subOrganizationOf=department.nr """ ;
-        rml:referenceFormulation rr:SQL2008 ;
+        rml:referenceFormulation rml:SQL2008 ;
     ];
-    rr:subjectMap [
-        rr:template "http://www.department{departmentnr}.university{universitynr}.edu/researchGroup{researchgroupnr}.edu";
-        rr:class ub:ResearchGroup;
+    rml:subjectMap [
+        rml:template "http://www.department{departmentnr}.university{universitynr}.edu/researchGroup{researchgroupnr}.edu";
+        rml:class ub:ResearchGroup;
     ];
-    rr:predicateObjectMap [
-        rr:predicate ub:subOrganizationOf;
-        rr:objectMap [ rr:template "http://www.department{departmentnr}.university{universitynr}.edu" ];
+    rml:predicateObjectMap [
+        rml:predicate ub:subOrganizationOf;
+        rml:objectMap [ rml:template "http://www.department{departmentnr}.university{universitynr}.edu" ];
     ].
 
 
@@ -85,15 +84,15 @@
     rml:logicalSource [ rml:query """
         SELECT subOrganizationOf AS universitynr, undergraduateCourse.name AS undergraduatecoursename, department.nr AS departmentnr
         FROM undergraduateCourse INNER JOIN faculty ON undergraduateCourse.teacher=faculty.nr INNER JOIN department ON faculty.worksFor=department.nr """ ;
-        rml:referenceFormulation rr:SQL2008 ;
+        rml:referenceFormulation rml:SQL2008 ;
     ];
-    rr:subjectMap [
-        rr:template "http://www.department{departmentnr}.university{universitynr}.edu/{undergraduatecoursename}";
-        rr:class ub:UndergraduateCourse;
+    rml:subjectMap [
+        rml:template "http://www.department{departmentnr}.university{universitynr}.edu/{undergraduatecoursename}";
+        rml:class ub:UndergraduateCourse;
     ];
-    rr:predicateObjectMap [
-        rr:predicate ub:name;
-        rr:objectMap [ rml:reference "undergraduatecoursename" ];
+    rml:predicateObjectMap [
+        rml:predicate ub:name;
+        rml:objectMap [ rml:reference "undergraduatecoursename" ];
     ].
 
 
@@ -101,15 +100,15 @@
     rml:logicalSource [ rml:query """
         SELECT subOrganizationOf AS universitynr, graduateCourse.name AS graduatecoursename, department.nr AS departmentnr
         FROM graduateCourse INNER JOIN faculty ON graduateCourse.teacher=faculty.nr INNER JOIN department ON faculty.worksFor=department.nr """ ;
-        rml:referenceFormulation rr:SQL2008 ;
+        rml:referenceFormulation rml:SQL2008 ;
     ];
-    rr:subjectMap [
-        rr:template "http://www.department{departmentnr}.university{universitynr}.edu/{graduatecoursename}";
-        rr:class ub:GraduateCourse;
+    rml:subjectMap [
+        rml:template "http://www.department{departmentnr}.university{universitynr}.edu/{graduatecoursename}";
+        rml:class ub:GraduateCourse;
     ];
-    rr:predicateObjectMap [
-        rr:predicate ub:name;
-        rr:objectMap [ rml:reference "graduatecoursename" ];
+    rml:predicateObjectMap [
+        rml:predicate ub:name;
+        rml:objectMap [ rml:reference "graduatecoursename" ];
     ].
 
 
@@ -117,11 +116,11 @@
     rml:logicalSource [ rml:query """
         SELECT department.nr AS departmentnr, faculty.name AS facultyname, department.subOrganizationOf AS universitynr
         FROM professor INNER JOIN faculty ON professor.nr=faculty.nr INNER JOIN department ON faculty.worksFor=department.nr WHERE professor.professorType='fullProfessor' """ ;
-        rml:referenceFormulation rr:SQL2008 ;
+        rml:referenceFormulation rml:SQL2008 ;
     ];
-    rr:subjectMap [
-        rr:template "http://www.department{departmentnr}.university{universitynr}.edu/{facultyname}";
-        rr:class ub:FullProfessor;
+    rml:subjectMap [
+        rml:template "http://www.department{departmentnr}.university{universitynr}.edu/{facultyname}";
+        rml:class ub:FullProfessor;
     ].
 
 
@@ -129,11 +128,11 @@
     rml:logicalSource [ rml:query """
         SELECT department.nr AS departmentnr, faculty.name AS facultyname, department.subOrganizationOf AS universitynr
         FROM professor INNER JOIN faculty ON professor.nr=faculty.nr INNER JOIN department ON faculty.worksFor=department.nr WHERE professor.professorType='assistantProfessor' """ ;
-        rml:referenceFormulation rr:SQL2008 ;
+        rml:referenceFormulation rml:SQL2008 ;
     ];
-    rr:subjectMap [
-        rr:template "http://www.department{departmentnr}.university{universitynr}.edu/{facultyname}";
-        rr:class ub:AssistantProfessor;
+    rml:subjectMap [
+        rml:template "http://www.department{departmentnr}.university{universitynr}.edu/{facultyname}";
+        rml:class ub:AssistantProfessor;
     ].
 
 
@@ -141,11 +140,11 @@
     rml:logicalSource [ rml:query """
         SELECT department.nr AS departmentnr, faculty.name AS facultyname, department.subOrganizationOf AS universitynr
         FROM professor INNER JOIN faculty ON professor.nr=faculty.nr INNER JOIN department ON faculty.worksFor=department.nr WHERE professor.professorType='associateProfessor' """ ;
-        rml:referenceFormulation rr:SQL2008 ;
+        rml:referenceFormulation rml:SQL2008 ;
     ];
-    rr:subjectMap [
-        rr:template "http://www.department{departmentnr}.university{universitynr}.edu/{facultyname}";
-        rr:class ub:AssociateProfessor;
+    rml:subjectMap [
+        rml:template "http://www.department{departmentnr}.university{universitynr}.edu/{facultyname}";
+        rml:class ub:AssociateProfessor;
     ].
 
 
@@ -153,18 +152,18 @@
     rml:logicalSource [ rml:query """
         SELECT department.nr AS departmentnr, faculty.name AS facultyname, department.subOrganizationOf AS universitynr, researchInterest AS researchinterest, headOf AS headof
         FROM professor INNER JOIN faculty ON professor.nr=faculty.nr INNER JOIN department ON faculty.worksFor=department.nr """ ;
-        rml:referenceFormulation rr:SQL2008 ;
+        rml:referenceFormulation rml:SQL2008 ;
     ];
-    rr:subjectMap [
-        rr:template "http://www.department{departmentnr}.university{universitynr}.edu/{facultyname}";
+    rml:subjectMap [
+        rml:template "http://www.department{departmentnr}.university{universitynr}.edu/{facultyname}";
     ];
-    rr:predicateObjectMap [
-        rr:predicate ub:researchInterest;
-        rr:objectMap [ rml:reference "researchinterest" ];
+    rml:predicateObjectMap [
+        rml:predicate ub:researchInterest;
+        rml:objectMap [ rml:reference "researchinterest" ];
     ];
-    rr:predicateObjectMap [
-        rr:predicate ub:headOf;
-        rr:objectMap [ rr:template "http://www.department{headof}.university{universitynr}.edu" ];
+    rml:predicateObjectMap [
+        rml:predicate ub:headOf;
+        rml:objectMap [ rml:template "http://www.department{headof}.university{universitynr}.edu" ];
     ].
 
 
@@ -172,11 +171,11 @@
     rml:logicalSource [ rml:query """
         SELECT department.nr AS departmentnr, faculty.name AS facultyname, department.subOrganizationOf AS universitynr
         FROM lecturer INNER JOIN faculty ON lecturer.nr=faculty.nr INNER JOIN department ON faculty.worksFor=department.nr """ ;
-        rml:referenceFormulation rr:SQL2008 ;
+        rml:referenceFormulation rml:SQL2008 ;
     ];
-    rr:subjectMap [
-        rr:template "http://www.department{departmentnr}.university{universitynr}.edu/{facultyname}";
-        rr:class ub:Lecturer;
+    rml:subjectMap [
+        rml:template "http://www.department{departmentnr}.university{universitynr}.edu/{facultyname}";
+        rml:class ub:Lecturer;
     ].
 
 
@@ -184,38 +183,38 @@
     rml:logicalSource [ rml:query """
         SELECT department.nr AS departmentnr, faculty.name AS facultyname, department.subOrganizationOf AS universitynr, telephone, emailAddress AS emailaddress, undergraduateDegreeFrom AS undergraduatedegreefrom, masterDegreeFrom AS masterdegreefrom, doctoralDegreeFrom AS doctoraldegreefrom
         FROM faculty INNER JOIN department ON faculty.worksFor=department.nr """ ;
-        rml:referenceFormulation rr:SQL2008 ;
+        rml:referenceFormulation rml:SQL2008 ;
     ];
-    rr:subjectMap [
-        rr:template "http://www.department{departmentnr}.university{universitynr}.edu/{facultyname}";
+    rml:subjectMap [
+        rml:template "http://www.department{departmentnr}.university{universitynr}.edu/{facultyname}";
     ];
-    rr:predicateObjectMap [
-        rr:predicate ub:name;
-        rr:objectMap [ rml:reference "facultyname" ];
+    rml:predicateObjectMap [
+        rml:predicate ub:name;
+        rml:objectMap [ rml:reference "facultyname" ];
     ];
-    rr:predicateObjectMap [
-        rr:predicate ub:emailAddress;
-        rr:objectMap [ rml:reference "emailaddress" ];
+    rml:predicateObjectMap [
+        rml:predicate ub:emailAddress;
+        rml:objectMap [ rml:reference "emailaddress" ];
     ];
-    rr:predicateObjectMap [
-        rr:predicate ub:telephone;
-        rr:objectMap [ rml:reference "telephone" ];
+    rml:predicateObjectMap [
+        rml:predicate ub:telephone;
+        rml:objectMap [ rml:reference "telephone" ];
     ];
-    rr:predicateObjectMap [
-        rr:predicate ub:worksFor;
-        rr:objectMap [ rr:template "http://www.department{departmentnr}.university{universitynr}.edu" ];
+    rml:predicateObjectMap [
+        rml:predicate ub:worksFor;
+        rml:objectMap [ rml:template "http://www.department{departmentnr}.university{universitynr}.edu" ];
     ];
-    rr:predicateObjectMap [
-        rr:predicate ub:doctoralDegreeFrom;
-        rr:objectMap [ rr:template "http://www.university{doctoraldegreefrom}.edu" ];
+    rml:predicateObjectMap [
+        rml:predicate ub:doctoralDegreeFrom;
+        rml:objectMap [ rml:template "http://www.university{doctoraldegreefrom}.edu" ];
     ];
-    rr:predicateObjectMap [
-        rr:predicate ub:masterDegreeFrom;
-        rr:objectMap [ rr:template "http://www.university{masterdegreefrom}.edu" ];
+    rml:predicateObjectMap [
+        rml:predicate ub:masterDegreeFrom;
+        rml:objectMap [ rml:template "http://www.university{masterdegreefrom}.edu" ];
     ];
-    rr:predicateObjectMap [
-        rr:predicate ub:undergraduateDegreeFrom;
-        rr:objectMap [ rr:template "http://www.university{undergraduatedegreefrom}.edu" ];
+    rml:predicateObjectMap [
+        rml:predicate ub:undergraduateDegreeFrom;
+        rml:objectMap [ rml:template "http://www.university{undergraduatedegreefrom}.edu" ];
     ].
 
 
@@ -223,14 +222,14 @@
     rml:logicalSource [ rml:query """
         SELECT faculty.name AS facultyname, department.nr AS departmentnr, department.subOrganizationOf AS universitynr, graduateCourse.name AS graduatecoursename
         FROM faculty INNER JOIN department ON faculty.worksFor=department.nr INNER JOIN graduateCourse ON graduateCourse.teacher=faculty.nr """ ;
-        rml:referenceFormulation rr:SQL2008 ;
+        rml:referenceFormulation rml:SQL2008 ;
     ];
-    rr:subjectMap [
-        rr:template "http://www.department{departmentnr}.university{universitynr}.edu/{facultyname}";
+    rml:subjectMap [
+        rml:template "http://www.department{departmentnr}.university{universitynr}.edu/{facultyname}";
     ];
-    rr:predicateObjectMap [
-        rr:predicate ub:teacherOf;
-        rr:objectMap [ rr:template "http://www.department{departmentnr}.university{universitynr}.edu/{graduatecoursename}" ];
+    rml:predicateObjectMap [
+        rml:predicate ub:teacherOf;
+        rml:objectMap [ rml:template "http://www.department{departmentnr}.university{universitynr}.edu/{graduatecoursename}" ];
     ].
 
 
@@ -238,14 +237,14 @@
     rml:logicalSource [ rml:query """
         SELECT faculty.name AS facultyname, department.nr AS departmentnr, department.subOrganizationOf AS universitynr, undergraduateCourse.name AS undergraduatecoursename
         FROM faculty INNER JOIN department ON worksFor=department.nr INNER JOIN undergraduateCourse ON undergraduateCourse.teacher=faculty.nr """ ;
-        rml:referenceFormulation rr:SQL2008 ;
+        rml:referenceFormulation rml:SQL2008 ;
     ];
-    rr:subjectMap [
-        rr:template "http://www.department{departmentnr}.university{universitynr}.edu/{facultyname}";
+    rml:subjectMap [
+        rml:template "http://www.department{departmentnr}.university{universitynr}.edu/{facultyname}";
     ];
-    rr:predicateObjectMap [
-        rr:predicate ub:teacherOf;
-        rr:objectMap [ rr:template "http://www.department{departmentnr}.university{universitynr}.edu/{undergraduatecoursename}" ];
+    rml:predicateObjectMap [
+        rml:predicate ub:teacherOf;
+        rml:objectMap [ rml:template "http://www.department{departmentnr}.university{universitynr}.edu/{undergraduatecoursename}" ];
     ].
 
 
@@ -253,27 +252,27 @@
     rml:logicalSource [ rml:query """
         SELECT department.subOrganizationOf AS universitynr, undergraduateStudent.name AS undergraduatestudentname, department.nr AS departmentnr, telephone, emailAddress AS emailaddress
         FROM undergraduateStudent INNER JOIN department ON undergraduateStudent.memberOf=department.nr """ ;
-        rml:referenceFormulation rr:SQL2008 ;
+        rml:referenceFormulation rml:SQL2008 ;
     ];
-    rr:subjectMap [
-        rr:template "http://www.department{departmentnr}.university{universitynr}.edu/{undergraduatestudentname}";
-        rr:class ub:UndergraduateStudent;
+    rml:subjectMap [
+        rml:template "http://www.department{departmentnr}.university{universitynr}.edu/{undergraduatestudentname}";
+        rml:class ub:UndergraduateStudent;
     ];
-    rr:predicateObjectMap [
-        rr:predicate ub:name;
-        rr:objectMap [ rml:reference "undergraduatestudentname" ];
+    rml:predicateObjectMap [
+        rml:predicate ub:name;
+        rml:objectMap [ rml:reference "undergraduatestudentname" ];
     ];
-    rr:predicateObjectMap [
-        rr:predicate ub:emailAddress;
-        rr:objectMap [ rml:reference "emailaddress" ];
+    rml:predicateObjectMap [
+        rml:predicate ub:emailAddress;
+        rml:objectMap [ rml:reference "emailaddress" ];
     ];
-    rr:predicateObjectMap [
-        rr:predicate ub:telephone;
-        rr:objectMap [ rml:reference "telephone" ];
+    rml:predicateObjectMap [
+        rml:predicate ub:telephone;
+        rml:objectMap [ rml:reference "telephone" ];
     ];
-    rr:predicateObjectMap [
-        rr:predicate ub:memberOf;
-        rr:objectMap [ rr:template "http://www.department{departmentnr}.university{universitynr}.edu" ];
+    rml:predicateObjectMap [
+        rml:predicate ub:memberOf;
+        rml:objectMap [ rml:template "http://www.department{departmentnr}.university{universitynr}.edu" ];
     ].
 
 
@@ -281,14 +280,14 @@
     rml:logicalSource [ rml:query """
         SELECT department.nr AS departmentnr, department.subOrganizationOf AS universitynr, undergraduateStudent.name AS undergraduatestudentname, faculty.name AS facultyname
         FROM undergraduateStudent INNER JOIN department ON undergraduateStudent.memberOf=department.nr INNER JOIN faculty ON undergraduateStudent.advisor=faculty.nr """ ;
-        rml:referenceFormulation rr:SQL2008 ;
+        rml:referenceFormulation rml:SQL2008 ;
     ];
-    rr:subjectMap [
-        rr:template "http://www.department{departmentnr}.university{universitynr}.edu/{undergraduatestudentname}";
+    rml:subjectMap [
+        rml:template "http://www.department{departmentnr}.university{universitynr}.edu/{undergraduatestudentname}";
     ];
-    rr:predicateObjectMap [
-        rr:predicate ub:advisor;
-        rr:objectMap [ rr:template "http://www.department{departmentnr}.university{universitynr}.edu/{facultyname}" ];
+    rml:predicateObjectMap [
+        rml:predicate ub:advisor;
+        rml:objectMap [ rml:template "http://www.department{departmentnr}.university{universitynr}.edu/{facultyname}" ];
     ].
 
 
@@ -296,31 +295,31 @@
     rml:logicalSource [ rml:query """
         SELECT graduateStudent.nr AS graduatestudentnr, department.subOrganizationOf AS universitynr, graduateStudent.name AS graduatestudentname, department.nr AS departmentnr, telephone, emailAddress AS emailaddress, undergraduateDegreeFrom AS undergraduatedegreefrom
         FROM graduateStudent INNER JOIN department ON graduateStudent.memberOf=department.nr """ ;
-        rml:referenceFormulation rr:SQL2008 ;
+        rml:referenceFormulation rml:SQL2008 ;
     ];
-    rr:subjectMap [
-        rr:template "http://www.department{departmentnr}.university{universitynr}.edu/{graduatestudentname}";
-        rr:class ub:GraduateStudent;
+    rml:subjectMap [
+        rml:template "http://www.department{departmentnr}.university{universitynr}.edu/{graduatestudentname}";
+        rml:class ub:GraduateStudent;
     ];
-    rr:predicateObjectMap [
-        rr:predicate ub:name;
-        rr:objectMap [ rml:reference "graduatestudentname" ];
+    rml:predicateObjectMap [
+        rml:predicate ub:name;
+        rml:objectMap [ rml:reference "graduatestudentname" ];
     ];
-    rr:predicateObjectMap [
-        rr:predicate ub:emailAddress;
-        rr:objectMap [ rml:reference "emailaddress" ];
+    rml:predicateObjectMap [
+        rml:predicate ub:emailAddress;
+        rml:objectMap [ rml:reference "emailaddress" ];
     ];
-    rr:predicateObjectMap [
-        rr:predicate ub:telephone;
-        rr:objectMap [ rml:reference "telephone" ];
+    rml:predicateObjectMap [
+        rml:predicate ub:telephone;
+        rml:objectMap [ rml:reference "telephone" ];
     ];
-    rr:predicateObjectMap [
-        rr:predicate ub:memberOf;
-        rr:objectMap [ rr:template "http://www.department{departmentnr}.university{universitynr}.edu" ];
+    rml:predicateObjectMap [
+        rml:predicate ub:memberOf;
+        rml:objectMap [ rml:template "http://www.department{departmentnr}.university{universitynr}.edu" ];
     ];
-    rr:predicateObjectMap [
-        rr:predicateMap [ rr:template "http://swat.cse.lehigh.edu/onto/univ-bench.owl#undergraduateDegreeFrom#{graduatestudentnr}" ];
-        rr:objectMap [ rr:template "http://www.university{undergraduatedegreefrom}.edu" ];
+    rml:predicateObjectMap [
+        rml:predicateMap [ rml:template "http://swat.cse.lehigh.edu/onto/univ-bench.owl#undergraduateDegreeFrom#{graduatestudentnr}" ];
+        rml:objectMap [ rml:template "http://www.university{undergraduatedegreefrom}.edu" ];
     ].
 
 
@@ -328,18 +327,18 @@
     rml:logicalSource [ rml:query """
         SELECT graduateStudent.nr AS graduatestudentnr, undergraduateDegreeYear AS undergraduatedegreeyear
         FROM graduateStudent """ ;
-        rml:referenceFormulation rr:SQL2008 ;
+        rml:referenceFormulation rml:SQL2008 ;
     ];
-    rr:subjectMap [
-        rr:template "http://swat.cse.lehigh.edu/onto/univ-bench.owl#undergraduateDegreeFrom#{graduatestudentnr}";
+    rml:subjectMap [
+        rml:template "http://swat.cse.lehigh.edu/onto/univ-bench.owl#undergraduateDegreeFrom#{graduatestudentnr}";
     ];
-    rr:predicateObjectMap [
-        rr:predicate rdf:singletonPropertyOf;
-        rr:object ub:undergraduateDegreeFrom;
+    rml:predicateObjectMap [
+        rml:predicate rdf:singletonPropertyOf;
+        rml:object ub:undergraduateDegreeFrom;
     ];
-    rr:predicateObjectMap [
-        rr:predicate ub:yearOfAward;
-        rr:objectMap [ rml:reference "undergraduatedegreeyear"; rr:datatype xsd:integer ];
+    rml:predicateObjectMap [
+        rml:predicate ub:yearOfAward;
+        rml:objectMap [ rml:reference "undergraduatedegreeyear"; rml:datatype xsd:integer ];
     ].
 
 
@@ -347,14 +346,14 @@
     rml:logicalSource [ rml:query """
         SELECT department.nr AS departmentnr, department.subOrganizationOf AS universitynr, graduateStudent.name AS graduatestudentname, faculty.name AS facultyname
         FROM graduateStudent INNER JOIN department ON graduateStudent.memberOf=department.nr INNER JOIN faculty ON graduateStudent.advisor=faculty.nr """ ;
-        rml:referenceFormulation rr:SQL2008 ;
+        rml:referenceFormulation rml:SQL2008 ;
     ];
-    rr:subjectMap [
-        rr:template "http://www.department{departmentnr}.university{universitynr}.edu/{graduatestudentname}";
+    rml:subjectMap [
+        rml:template "http://www.department{departmentnr}.university{universitynr}.edu/{graduatestudentname}";
     ];
-    rr:predicateObjectMap [
-        rr:predicate ub:advisor;
-        rr:objectMap [ rr:template "http://www.department{departmentnr}.university{universitynr}.edu/{facultyname}" ];
+    rml:predicateObjectMap [
+        rml:predicate ub:advisor;
+        rml:objectMap [ rml:template "http://www.department{departmentnr}.university{universitynr}.edu/{facultyname}" ];
     ].
 
 
@@ -362,15 +361,15 @@
     rml:logicalSource [ rml:query """
         SELECT undergraduateCourse.name AS undergraduatecoursename, graduateStudent.name AS graduatestudentname, department.nr AS departmentnr, department.subOrganizationOf as universitynr
         FROM undergraduateCourse INNER JOIN graduateStudent ON undergraduateCourse.teachingAssistant=graduateStudent.nr INNER JOIN department ON graduateStudent.memberOf=department.nr """ ;
-        rml:referenceFormulation rr:SQL2008 ;
+        rml:referenceFormulation rml:SQL2008 ;
     ];
-    rr:subjectMap [
-        rr:template "http://www.department{departmentnr}.university{universitynr}.edu/{graduatestudentname}";
-        rr:class ub:TeachingAssistant;
+    rml:subjectMap [
+        rml:template "http://www.department{departmentnr}.university{universitynr}.edu/{graduatestudentname}";
+        rml:class ub:TeachingAssistant;
     ];
-    rr:predicateObjectMap [
-        rr:predicate ub:teachingAssistantOf;
-        rr:objectMap [ rr:template "http://www.department{departmentnr}.university{universitynr}.edu/{undergraduatecoursename}" ];
+    rml:predicateObjectMap [
+        rml:predicate ub:teachingAssistantOf;
+        rml:objectMap [ rml:template "http://www.department{departmentnr}.university{universitynr}.edu/{undergraduatecoursename}" ];
     ].
 
 
@@ -378,14 +377,14 @@
     rml:logicalSource [ rml:query """
         SELECT publication.name AS publicationname, graduateStudent.name AS graduatestudentname, faculty.name AS facultyname, department.nr AS departmentnr, department.subOrganizationOf AS universitynr
         FROM coAuthorOfPublication INNER JOIN publication ON coAuthorOfPublication.publicationID=publication.nr INNER JOIN faculty ON publication.mainAuthor=faculty.nr INNER JOIN department ON faculty.worksFor=department.nr INNER JOIN graduateStudent ON coAuthorOfPublication.graduateStudentID=graduateStudent.nr """ ;
-        rml:referenceFormulation rr:SQL2008 ;
+        rml:referenceFormulation rml:SQL2008 ;
     ];
-    rr:subjectMap [
-        rr:template "http://www.department{departmentnr}.university{universitynr}.edu/{facultyname}/{publicationname}";
+    rml:subjectMap [
+        rml:template "http://www.department{departmentnr}.university{universitynr}.edu/{facultyname}/{publicationname}";
     ];
-    rr:predicateObjectMap [
-        rr:predicate ub:publicationAuthor;
-        rr:objectMap [ rr:template "http://www.department{departmentnr}.university{universitynr}.edu/{graduatestudentname}" ];
+    rml:predicateObjectMap [
+        rml:predicate ub:publicationAuthor;
+        rml:objectMap [ rml:template "http://www.department{departmentnr}.university{universitynr}.edu/{graduatestudentname}" ];
     ].
 
 
@@ -393,14 +392,14 @@
     rml:logicalSource [ rml:query """
         SELECT undergraduateStudent.name AS undergraduatestudentname, undergraduateCourse.name AS undergraduatecoursename, department.nr AS departmentnr, department.subOrganizationOf AS universitynr
         FROM undergraduateStudentTakeCourse INNER JOIN undergraduateStudent ON undergraduateStudentTakeCourse.undergraduateStudentID=undergraduateStudent.nr INNER JOIN department ON undergraduateStudent.memberOf=department.nr INNER JOIN undergraduateCourse ON undergraduateStudentTakeCourse.undergraduateCourseID=undergraduateCourse.nr """ ;
-        rml:referenceFormulation rr:SQL2008 ;
+        rml:referenceFormulation rml:SQL2008 ;
     ];
-    rr:subjectMap [
-        rr:template "http://www.department{departmentnr}.university{universitynr}.edu/{undergraduatestudentname}";
+    rml:subjectMap [
+        rml:template "http://www.department{departmentnr}.university{universitynr}.edu/{undergraduatestudentname}";
     ];
-    rr:predicateObjectMap [
-        rr:predicate ub:takesCourse;
-        rr:objectMap [ rr:template "http://www.department{departmentnr}.university{universitynr}.edu/{undergraduatecoursename}" ];
+    rml:predicateObjectMap [
+        rml:predicate ub:takesCourse;
+        rml:objectMap [ rml:template "http://www.department{departmentnr}.university{universitynr}.edu/{undergraduatecoursename}" ];
     ].
 
 
@@ -408,12 +407,12 @@
     rml:logicalSource [ rml:query """
         SELECT graduateStudent.name AS graduatestudentname, graduateCourse.name AS graduatecoursename, department.nr AS departmentnr, department.subOrganizationOf AS universitynr
         FROM graduateStudentTakeCourse INNER JOIN graduateStudent ON graduateStudentTakeCourse.graduateStudentID=graduateStudent.nr INNER JOIN department ON graduateStudent.memberOf=department.nr INNER JOIN graduateCourse ON graduateStudentTakeCourse.graduateCourseID=graduateCourse.nr """ ;
-        rml:referenceFormulation rr:SQL2008 ;
+        rml:referenceFormulation rml:SQL2008 ;
     ];
-    rr:subjectMap [
-        rr:template "http://www.department{departmentnr}.university{universitynr}.edu/{graduatestudentname}";
+    rml:subjectMap [
+        rml:template "http://www.department{departmentnr}.university{universitynr}.edu/{graduatestudentname}";
     ];
-    rr:predicateObjectMap [
-        rr:predicate ub:takesCourse;
-        rr:objectMap [ rr:template "http://www.department{departmentnr}.university{universitynr}.edu/{graduatecoursename}" ];
+    rml:predicateObjectMap [
+        rml:predicate ub:takesCourse;
+        rml:objectMap [ rml:template "http://www.department{departmentnr}.university{universitynr}.edu/{graduatecoursename}" ];
     ].
