@@ -17,16 +17,16 @@
 
 ```bib
 @article{arenas2024lubm4obda,
-  title = {{LUBM4OBDA: Benchmarking OBDA Systems with Inference and Meta Knowledge}},
-  author = {Arenas-Guerrero, Julián and Pérez, María S. and Corcho, Oscar},
-  journal = {Journal of Web Engineering},
+  title     = {{LUBM4OBDA: Benchmarking OBDA Systems with Inference and Meta Knowledge}},
+  author    = {Arenas-Guerrero, Julián and Pérez, María S. and Corcho, Oscar},
+  journal   = {Journal of Web Engineering},
   publisher = {River Publishers},
-  issn = {1544-5976},
-  year = {2024},
-  volume = {22},
-  number = {8},
-  pages = {1163–1186},
-  doi = {10.13052/jwe1540-9589.2284}
+  issn      = {1544-5976},
+  year      = {2024},
+  volume    = {22},
+  number    = {8},
+  pages     = {1163–1186},
+  doi       = {10.13052/jwe1540-9589.2284}
 }
 ```
 
