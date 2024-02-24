@@ -10,7 +10,7 @@
 - Data generator for custom scaling factors.
 - Original **[LUBM query set](http://swat.cse.lehigh.edu/projects/lubm/queries-sparql.txt)** (queries 1-14).
 - Meta knowledge query set for [_standard reification_](https://www.w3.org/TR/rdf-primer/#reification), [_singleton property_](https://dl.acm.org/doi/pdf/10.1145/2566486.2567973) and [_SPARQL-star_](https://w3c.github.io/rdf-star/cg-spec/2021-12-17.html#sparql-star) (queries 15-18).
-- **[R2RML](https://www.w3.org/TR/r2rml/)** and **[RML](https://rml.io/specs/rml/)** mappings.
+- **[R2RML](https://www.w3.org/TR/r2rml/)** and **[RML](http://w3id.org/rml/portal/)** mappings.
 
 
 **Citing LUBM4OBDA**: please cite the [JWE paper](https://journals.riverpublishers.com/index.php/JWE/article/view/18845):
