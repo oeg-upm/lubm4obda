@@ -37,12 +37,6 @@ There are two options to obtain the SQL data dumps:
 - Download the SQL data dumps for scaling factors 1, 10, 100 and 1000 from **[Zenodo](https://doi.org/10.5281/zenodo.7110221)**.
 - Use the **[Docker](https://github.com/oeg-upm/lubm4obda/tree/main/generator#build-and-run-the-data-generator-image-locally)** container with the data generator to produce the data with **custom** scaling factors.
 
-To use the docker container with the data generator just run the following command from the terminal:
-
-`docker run -itv "$(pwd)":/output oegdataintegration/lubm4obda`
-
-Then follow the instructions prompted: provide the scaling factor and select the RDBMS (MySQL or PostgreSQL).
-
 ## Mappings
 
 The **[mappings](https://github.com/oeg-upm/lubm4obda/tree/main/mappings)** directory of this GitHub repository contains all the R2RML and RML documents. The following mappings are provided:
