@@ -15,3 +15,5 @@ Build the image:
 Run the image:
 
 `docker run -itv "$(pwd)":/output lubm4obda`
+
+Then follow the instructions prompted: provide the scaling factor and select the RDBMS (MySQL or PostgreSQL).
