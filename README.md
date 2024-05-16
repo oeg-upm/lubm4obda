@@ -13,7 +13,7 @@
 - **[R2RML](https://www.w3.org/TR/r2rml/)** and **[RML](http://w3id.org/rml/portal/)** mappings.
 
 
-**Citing LUBM4OBDA**: please cite the [JWE paper](https://journals.riverpublishers.com/index.php/JWE/article/view/18845):
+**Citing LUBM4OBDA**: please cite the **[JWE paper](https://journals.riverpublishers.com/index.php/JWE/article/view/18845)**:
 
 ```bib
 @article{arenas2024lubm4obda,
@@ -60,3 +60,7 @@ The **Univ-Bench ontology** is available in the **[ontology](https://github.com/
 ## Queries
 
 The queries are available in the **[queries](https://github.com/oeg-upm/lubm4obda/tree/main/queries)** directory of this GitHub repository. Keep in mind that **original** mappings should be used for **queries 1-14**. There are three different versions of **queries 15-18**, one for each meta knowledge approach (standard reification, singleton property or RDF-star), with each approach having its corresponding mapping.
+
+## CSV & Apache Parquet
+
+It is also possible to run the benchmark with **CSV** and **Apache Parquet** files. The resources for these data sources are available in [Zenodo](https://zenodo.org/doi/10.5281/zenodo.7389704) and they have been described in an **[ESWC paper](https://2023.eswc-conferences.org/wp-content/uploads/2023/05/paper_Arenas-Guerrero_2023_Boosting.pdf)**.
